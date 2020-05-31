@@ -1,5 +1,25 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+  end
+  namespace :admins do
+    get 'orders/index'
+    get 'orders/show'
+  end
+  namespace :admins do
+    get 'categories/index'
+  end
+  namespace :admins do
+    get 'products/index'
+    get 'products/show'
+    get 'products/new'
+    get 'products/edit'
+  end
+  namespace :admins do
+    get 'homes/top'
+  end
   devise_for :admins
   devise_for :users
   resources :users, only: [:show, :edit, :update]
