@@ -11,6 +11,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
+# nagano cake 追加gem-----------------------------------------
 gem 'devise'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
@@ -20,6 +22,8 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jp_prefecture'
+# ------------------------------------------------------------
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
