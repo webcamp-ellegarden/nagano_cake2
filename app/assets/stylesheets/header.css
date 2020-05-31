@@ -1,0 +1,29 @@
+.nav {
+	width: 100%;
+}
+.navigation {
+	width: 100%;
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
+}
+.navigation li {
+	text-decoration: none;
+}
+.navigation li:nth-child(2n+1) {
+	width: 1px;
+	border: 1px solid white;
+	background-color: white;
+}
+.navigation li a {
+	color: #EEF5DB;
+}
+.navigation li a:hover {
+	color: #333745;
+}
+.pink {
+ 	background-color: #E63462;
+ }
+.cream-sentence {
+ 	color: #EEF5DB;
+ }
