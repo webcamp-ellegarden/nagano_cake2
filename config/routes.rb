@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  devise_for :users
   resources :users, only: [:show, :edit, :update]
   get 'users/:id/unregister' => 'users#unregister'
   get 'users/:id/leave' => 'users#leave'
