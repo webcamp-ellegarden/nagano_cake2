@@ -1,0 +1,68 @@
+<!-- カートページ -->
+<div class="row">
+	<div class="col-9">
+    <h2>ショッピングカート</h2>
+  </div>
+  <div class="col-3">
+  	<div class="btn btn-danger">
+			<%= link_to "カートを空にする", carts_reset_path, method: :delete %>
+		</div>
+  </div>
+</div>
+<div class="row">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>単価</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @carts.each do |cart| %>
+		  <tr>
+		  	<td><%= cart.product.product_name %></td>
+		  	<td><%= cart.product.product_price %></td>
+		  	<td>
+		  		<%= form_for cart do |f| %>
+		  		  <%= f.number_field, :cart.number %>
+		  		  <%= f.submit "変更する" %>
+		  		<% end %>
+		  	</td>
+		  	<td>#{ cart.product.product_price * cart.number }</td>
+		  	<td>
+		  		<div class="btn btn-danger">
+			      <%= link_to "削除", cart_path(cart), method: :delete %>
+		      </div>
+		  	</td>
+		  </tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="row">
+	<div class="btn btn-outline-primary">
+		<%= link_to "買い物を続ける", products_path %>
+	</div>
+	<div>
+		<table>
+			<tbody>
+				<tr>
+					<td>合計金額</td>
+					<td style="color: red;">未実装</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="row">
+	<div class="col-3"></div>
+	<div class="col-6">
+		<div class="btn btn-success btn-lg">
+		  <%= link_to "情報入力に進む", new_order_path %>
+	  </div>
+	</div>
+	<div class="col-3"></div>
+</div>
