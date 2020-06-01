@@ -14,25 +14,19 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 #------------------------------------------------------------
+  root 'top#home'
+
+# admins--------------------------------------------
 
   namespace :admins do
-    get 'users/index'
-    get 'users/show'
-  end
-  namespace :admins do
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :admins do
-    get 'categories/index'
-  end
-  namespace :admins do
-    get 'products/index'
-    get 'products/show'
-    get 'products/new'
-    get 'products/edit'
-  end
-  namespace :admins do
+    resources :users, only: [:index,:show,:edit,:update,:destroy,:create]
+  
+    resources :orders, only: [:index,:show,:update,:destroy,:create]
+  
+    resources :categories, only: [:index,:edit,:update,:destroy,:create]
+
+    resources :categories, only: [:index,:edit,:new,:update,:destroy,:create]
+
     get 'homes/top'
   end
 
