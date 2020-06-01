@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-3">
+	  <%= render 'layouts/category' %>
+  </div>
+  <div class="col-1"></div>
+  <div class="col-8">
+  	<div class="product-show-box">
+  		<%= attachment_image_tag @product, :product_image, :fill, 200, 300, class: "img-rounded", fallback: "no_image_lg.jpg" %>
+  		<div class="product-detail">
+  			<h2><%= @product.product_name %></h2>
+  			<p><%= @product.product_commnet %></p>
+  			<h3>￥ #{ @product.product_price % * 1.08 } (税込)</h3>
+  		</div>
+  	</div>
+  	<div class="row">
+  		<div class="col-6"></div>
+  		<div class="col-6">
+ <!--  			<%= form_for @product, url:carts_path do |f| %>
+		      <%= f.select :category_status, Category.category_statuses.keys, include_blank: "個数選択" %>
+		      <%= f.submit %>
+	      <% end %> 後で編集-->
+  		</div>
+  	</div>
+  </div>
+</div>
