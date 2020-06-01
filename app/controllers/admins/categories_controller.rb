@@ -2,6 +2,7 @@ class Admins::CategoriesController < ApplicationController
   
   def index
   	@category =Category.new
+  	@categores =Category.all
   end
 
   def create
