@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 #------------------------------------------------------------
-  root 'top#home'
+  root 'home#home'
 
 # admins--------------------------------------------
 
