@@ -1,18 +1,14 @@
-<html>
-<boby>
-	<div class="cintainer">
-		<div class="row">
-			<div class="col-xs-3">
-				<%= render 'layouts/categoly' %>
-			</div>
-			<div class='row'>
-				<%= image_tag 'topimage1.jpg' %>
-				<p>Pick UP!</p>
-				<%= image_tag 'topimage2.jpg' %>
-				<%= image_tag 'topimage3.jpg' %>
-				<%= image_tag 'topimage4.jpg' %>
-				<%= image_tag 'topimage5.jpg' %>
-
-			</div>
-		</div>
+<div class="row">
+	<div class="col-lg-3">
+		<%= render 'layouts/categoly' %>
 	</div>
+	<div class="col-lg-9">
+		<%= image_tag 'topimage1.jpg' %>
+		<p>オススメ商品</p>
+		<%= image_tag 'topimage2.jpg' %>
+		<%= image_tag 'topimage3.jpg' %>
+		<%= image_tag 'topimage4.jpg' %>
+		<%= image_tag 'topimage5.jpg' %>
+	</div>
+	<%= link_to 'もっと見る＞', products_path %>
+</div>
