@@ -2,7 +2,7 @@ class Admins::CategoriesController < ApplicationController
   
   def index
   	@category =Category.new
-  	@categores =Category.all
+  	@categories =Category.all
   end
 
   def create
@@ -14,6 +14,21 @@ class Admins::CategoriesController < ApplicationController
   		render 'index'
     end
   end
+
+  def edit
+  	@category = Category.find(params[:id])
+  end
+
+  def update
+  	@category = Category.find(params[:id])
+  	if @category.update(category_params)
+  		redirect_to admins_categories_path
+  	else
+      flash[:notice]="error"
+  		render "edit"
+  	end
+  end
+
 
   private
 
