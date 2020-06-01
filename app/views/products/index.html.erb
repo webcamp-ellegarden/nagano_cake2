@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-lg-3">
+		<%= render 'layouts/category' %>
+	</div>
+	<div class="col-lg-9">
+		<% if @category == "0" %>
+		  <h2>商品一覧(全<%= @products.count %>件)</h2>
+		<% elsif @category == "1" %>
+		  <h2>ケーキ一覧(全<%= @products.count %>件)</h2>
+		<% elsif @category == "2" %>
+		  <h2>焼き菓子一覧(全<%= @products.count %>件)</h2>
+		<% elsif @category == "3" %>
+		  <h2>プリン一覧(全<%= @products.count %>件)</h2>
+		<% else %>
+		  <h2>キャンディ一覧(全<%= @products.count %>件)</h2>
+		<% end %>
+		<div class="products-box">
+			<% @products.each do |product| %>
+			  <div class="product-box">
+			  	<%= attachment_image_tag product, :product_image, :fill, 100, 100, class: "img-rounded",fallback: "no_image_lg.jpg" %>
+			  	<p><%= product.product_name %></p>
+			  	<p>￥<%= product.product_price %></p>
+			  </div>
+			<% end %>
+			<%= paginate @products %>
+		</div>
+	</div>
+</div>
+
+

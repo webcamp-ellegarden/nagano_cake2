@@ -27,3 +27,20 @@
 .cream-sentence {
  	color: #EEF5DB;
  }
+
+ /*test用css*/
+ .products-box {
+ 	width: 100%;
+ }
+ .products-box {
+ 	display: flex;
+ 	flex-wrap: wrap;
+ 	justify-content: space-between;
+ }
+ .product-image {
+ 	width: 100px;
+ 	height: 100px;
+ 	background-color: url(no_image_lg.jpg);
+ 	background-size: cover;
+ 	background-position:center;
+ }

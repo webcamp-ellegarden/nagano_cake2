@@ -24,7 +24,7 @@
 		      　<li></li>
 				<li><%= link_to "マイページ", user_path(current_user) %></li>
 		    	<li></li>
-				<li><%= link_to "商品一覧", products_path %></li>
+				<li><%= link_to "商品一覧", products_path(category: "0") %></li>
 				<li></li>
 				<li><%= link_to "カート", carts_path %></li>
 				<li></li>
@@ -32,7 +32,7 @@
 				<li></li>
 		      <% else %>
 		    	<li></li>
-				<li><%= link_to "商品一覧", products_path %></li>
+				<li><%= link_to "商品一覧", products_path(category: "0") %></li>
 				<li></li>
 				<li><%= link_to "新規登録", new_user_registration_path %></li>
 				<li></li>
