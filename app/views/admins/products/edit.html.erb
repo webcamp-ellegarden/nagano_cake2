@@ -1,2 +1,28 @@
-<h1>Admins::Products#edit</h1>
-<p>Find me in app/views/admins/products/edit.html.erb</p>
+<h1>商品編集</h1>
+
+
+<div class="container">
+
+<%= form_for @product,:url => {:action => :update} do |f| %>
+   
+     <div class="form-group">
+       <%= f.label :product_name %>
+       <%= f.text_field :product_name %>
+     </div>
+     <div class="form-group">
+       <%= f.label :product_price %>
+       <%= f.text_field :product_price %>
+     </div>
+     <div class="form-group">
+       <%= f.label :product_comment %>
+       <%= f.text_area :product_comment %>
+     </div>
+     <div class="form-group">
+	   <%= f.label :product_image %>
+	   <%= f.attachment_field :product_image %>
+
+      <div class="form-group">
+       <%= f.submit %>
+      </div>
+  <% end %>
+</div>

@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   
     resources :categories, only: [:index,:edit,:update,:destroy,:create]
 
-    resources :products, only: [:index,:edit,:new,:update,:destroy,:create]
+    resources :products, only: [:index,:edit,:new,:update,:destroy,:create,:show]
 
     get 'homes/top'
   end
