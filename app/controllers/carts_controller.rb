@@ -9,7 +9,7 @@ class CartsController < ApplicationController
 
 #個数変更
   def update
-  	@cart = cart.find(params(:id))
+  	@cart = cart.find(params[:id])
   	@cart.update(cart_params)
   	redirect_to cart_path(@cart)
   end
