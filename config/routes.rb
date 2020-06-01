@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   
   resources :delivery_addresses, only: [:index,:edit,:update,:destroy,:create]
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show,]
 
   resources :orders, only: [:index, :show, :new, :update]
   get 'orders/:id/confirmation' => 'users#confirmation'
