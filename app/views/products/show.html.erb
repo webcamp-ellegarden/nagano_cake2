@@ -8,8 +8,8 @@
   		<%= attachment_image_tag @product, :product_image, :fill, 200, 300, class: "img-rounded", fallback: "no_image_lg.jpg" %>
   		<div class="product-detail">
   			<h2><%= @product.product_name %></h2>
-  			<p><%= @product.product_commnet %></p>
-  			<h3>￥ #{ @product.product_price % * 1.08 } (税込)</h3>
+  			<p><%= @product.product_comment %></p>
+  			<h3>￥ (#{ <%= @product.product_price %>.to_i * 1.08 }) (税込)</h3>
   		</div>
   	</div>
   	<div class="row">
