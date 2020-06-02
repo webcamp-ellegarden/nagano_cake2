@@ -23,7 +23,7 @@
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 </div>
 
-<%= render 'layouts/addressform' %>
+<%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
 
 <!-- tel -->
 <div class="field">
@@ -49,7 +49,7 @@
 <%= link_to 'コチラ',"new_user_session_path" %>からログインしてください
 
 <div class="actions">
-  <%= f.submit "新規登録" %>
+  <%= f.submit "新規会員登録" %>
 </div>
 <% end %>
 
