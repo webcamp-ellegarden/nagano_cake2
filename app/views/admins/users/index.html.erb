@@ -14,10 +14,11 @@
 			<% @users.each do |user| %>
 			<tr>
 				<td><%= user.id %>	</td>
-				<td><<%= link_to(admins_user_path(user)) do %>
-					<%=user.family_name %>
+				<td><%= link_to(admins_user_path(user)) do %>
+					<%=user.family_name %><%= user.first_name %>
 	                <% end %>
 			    </td>
+			    <td><%= user.email %>	</td>
 				<td><%= user.user_status %>
 		    </tr>
 			<% end %>
