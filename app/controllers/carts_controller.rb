@@ -5,6 +5,11 @@ class CartsController < ApplicationController
   end
   #商品詳細→プルダウンの個数、保存
   def create
+    @cart = Cart.new(cart_params)
+    @cart.user_id = current_user.id
+    @cart.product_id = params[:product_id]
+    @cart.save
+    redirect_to 'index'
   end
 
 #個数変更

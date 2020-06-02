@@ -4,6 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+#アソシエーション----------------------------------------------------------------------
+    has_many :orders, dependent: :destroy
+    has_many :delivery_addresses, dependent: :destroy
+  #カート部分--------------------------------
+    has_many :carts
+    has_many :products, through: :carts
+  #----------------------------------------
+
 #  jp_prefecture用メソッド------------------------------------------------------------
   include JpPrefecture
   jp_prefecture :prefecture_code
@@ -17,5 +25,5 @@ class User < ApplicationRecord
   end
 # ----------------------------------------------------------------------------------
 
-  has_many :orders, dependent: :destroy
+
 end

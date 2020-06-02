@@ -3,16 +3,16 @@
 		<%= render 'layouts/category' %>
 	</div>
 	<div class="col-9">
-		<% if @category == "0" %>
-		  <h2>商品一覧(全<%= @products.count %>件)</h2>
-		<% elsif @category == "1" %>
+		<% if @category == "1" %>
 		  <h2>ケーキ一覧(全<%= @products.count %>件)</h2>
 		<% elsif @category == "2" %>
 		  <h2>焼き菓子一覧(全<%= @products.count %>件)</h2>
 		<% elsif @category == "3" %>
 		  <h2>プリン一覧(全<%= @products.count %>件)</h2>
-		<% else %>
+		<% elsif @category == "4" %>
 		  <h2>キャンディ一覧(全<%= @products.count %>件)</h2>
+		<% else %>
+		  <h2>商品一覧(全<%= @products.count %>件)</h2>
 		<% end %>
 		<div class="products-box">
 			<% @products.each do |product| %>
