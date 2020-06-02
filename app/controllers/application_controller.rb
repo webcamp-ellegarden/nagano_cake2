@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	
+before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def after_sign_in_path_for(resource)
 		case resource
@@ -9,36 +11,9 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	protected
 	def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:family_name])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:first_name])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:email])
-		devise_parameter_sanitizer.permit(:sign_in, keys: [:email])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name_kana])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:family_name_kana])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name_kana])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:first_name_kana])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:tel])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:tel])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:postal_code])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:postal_code])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:prefecture_code])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:prefecture_code])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:address_city])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:address_city])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:address_street])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:address_street])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:address_building])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:address_building])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:password])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:password])
-		devise_parameter_sanitizer.permit(:sign_in, keys: [:password])
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:password_confirmation])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:password_confirmation])
-		devise_parameter_sanitizer.permit(:sign_in, keys: [:password_confirmation])
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:family_name,:first_name,:email,:family_name_kana,:first_name_kana,:tel,:postal_code,:prefecture_code,:address_city,:address_street,:address_building,:password,:password_confirmation])
 	end
 
 end
