@@ -5,7 +5,7 @@
 
 <p>商品名:<%= @product.product_name %></p>
 <p>商品説明:<%= @product.product_comment %></p>
-<p>ジャンル:<%= @product.category_id %></p>
+<p>ジャンル:<%= @product.category.name %></p>
 <p>税込価格(税抜価格):<%= @product.product_price %></p>
 <p>販売ステータス:<%= @product.product_status %></p>
 

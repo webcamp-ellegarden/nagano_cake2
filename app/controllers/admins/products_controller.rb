@@ -10,6 +10,8 @@ class Admins::ProductsController < ApplicationController
 
   def new
   	@product = Product.new
+    @categories = Category.all
+    @category = Product.new
   end
 
   def create
