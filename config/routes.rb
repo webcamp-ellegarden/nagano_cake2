@@ -38,9 +38,9 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show,]
 
-  resources :orders, only: [:index, :show, :new, :update]
-  get 'orders/:id/confirmation' => 'users#confirmation'
-  get 'orders/:id/completation' => 'users#completation'
+  resources :orders, only: [:index, :show, :new, :create]
+  get 'orders/confirmation' => 'orders#confirmation'
+  get 'orders/completation' => 'orders#completation'
 
   delete 'carts/reset' => 'carts#reset'
   resources :carts, only: [:index, :create, :update, :destroy]

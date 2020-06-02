@@ -25,17 +25,27 @@ class OrdersController < ApplicationController
   end
   # (POST)注文データ作成→注文確定ページ表示---------0
   def create
-  	
-  	order.save
-
+  	@order = Order.new(order_params)
+  	@order.user_id = current_user.id
+  	@order.save
+    @carts = Cart.where(user_id: current_user.id)
+    @carts.each do |cart|
+        @order_detail = OrderDetail.new
+        @order_detail.order_id = @order.id
+        @order_detail.product_id = cart.product_id
+        @order_detail.number = cart.number
+        @order_detail.product_price = cart.product.product_price
+        @order_detail.making_status = 1
+        @order_detail.save
+    end
   	current_user.carts.destroy_all
-  	render 'orders/complecation'
+  	render 'orders/completation'
   end
 #------------------------------------------
 #ストロングパラメーター---------------------------
   private 
   def order_params
-  	params.require(:order).permit()
+  	params.require(:order).permit(:payment, :receiver, :postal_code, :delivery_address)
   end
 
 end
