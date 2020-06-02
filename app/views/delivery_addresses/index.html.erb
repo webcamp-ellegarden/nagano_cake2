@@ -1,5 +1,67 @@
 <h1>配送先登録・一覧</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= render 'layouts/addressform' %>
+<%= form_for @address do |f| %>
+
+   <div class="field">
+     <%= f.label :郵便番号（ハイフンなし） %><br />
+     <%= f.text_field :portal_code, autofocus: true, autocomplete: "postal_code" %>
+   </div>
+<!-- -----------prefecture_code----------- -->
+   <div class="field">
+     <%= f.label :都道府県 %><br />
+     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name ,include_blank: '都道府県' %>
+   </div>
+<!-- address_city -->
+   <div class="field">
+     <%= f.label :市区町村 %><br />
+     <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city" %>
+   </div>
+<!-- adress_street -->
+   <div class="field">
+     <%= f.label :番地 %><br />
+     <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street" %>
+   </div>
+<!-- address_building -->
+   <div class="field">
+     <%= f.label :建物 %><br />
+     <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building" %>
+   </div>
+
+   <div class="field">
+   	  <%= f.label :宛名 %><br />
+   	  <%= f.text_field :receiver %>
+   </div>
+
+   <div class="field">
+     <div class="text-right">
+      <%= f.submit "登録する", class: "btn btn-success" %>
+    </div>
+  </div>
 <% end %>
+
+<table class="table">
+	<thead>
+		<tr>
+		  <th>郵便番号</th>
+			<th>住所</th>
+			<th>宛名</th>
+			<th></th>
+        </tr>
+    </thead>
+  
+
+  <% @addresses.each do |a| %>
+    <tbody>
+   
+      <tr>
+    	  <td><%= a.portal_code %></td>
+    	  <td><%= a.prefecture_code %><%= a.address_city %><%= a.address_street %><%= a.address_building %></td>
+    	  <td><%= a.receiver %></td>
+        <td></td>
+        <td></td>
+
+      </tr>
+ 
+    </tbody>
+  <% end %>
+</table>
