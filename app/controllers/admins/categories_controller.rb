@@ -10,7 +10,8 @@ class Admins::CategoriesController < ApplicationController
   	if @category.save 
   		redirect_to admins_categories_path
   	else
-      flash[:notice]="errors"
+  		@categories =Category.all
+        flash[:notice]="errors"
   		render 'index'
     end
   end
