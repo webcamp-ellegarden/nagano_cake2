@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<%= form_for @product,:url => {:action => :update} do |f| %>
+  <%= form_for @product,:url => {:action => :update} do |f| %>
    
      <div class="form-group">
        <%= f.label :product_name %>
@@ -17,12 +17,14 @@
        <%= f.label :product_comment %>
        <%= f.text_area :product_comment %>
      </div>
+
      <div class="form-group">
-	   <%= f.label :product_image %>
-	   <%= f.attachment_field :product_image %>
+	     <%= f.label :product_image %>
+	     <%= f.attachment_field :product_image %>
+       <%= attachment_image_tag @product, :product_image, :fill, 300, 300, format: 'jpeg' %>
 
      <div class="form-group">ジャンル
-      <%= f.collection_select(:category_id,Category.all, :id, :name, include_blank: "選択してください") do |category| %>
+       <%= f.collection_select(:category_id,Category.all, :id, :name, include_blank: "選択してください") do |category| %>
         <%= category.label do %>
           <%= category.check_box %>
             <%= category.text %>
