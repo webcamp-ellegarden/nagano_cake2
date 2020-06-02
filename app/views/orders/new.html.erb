@@ -1,0 +1,14 @@
+<div class="row">
+  <h2>注文情報入力</h2>
+  <%= form_for @order, url: orders_path do |f| %>
+    <%= f.radio_button :payment, "クレジットカード" %><span>クレジットカード</span><br>
+    <%= f.radio_button :payment, "銀行振り込み" %><span>銀行振り込み</span>
+    
+    <h3>届け先</h3>
+    <span>宛名</span><%= f.text_field :receiver %><br>
+    <span>郵便番号</span><%= f.text_field :postal_code %><br>
+    <span>住所</span><%= f.text_field :delivery_address %><br>
+    <%= f.submit "確認画面に進む" %>
+  <% end %>
+
+</div>

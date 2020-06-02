@@ -12,7 +12,7 @@
   				<td>
   					<p><%= @order.postal_code %></p>
 			  		<p><%= @order.delivery_address %></p>
-			  		<p><%= @order.user.family_name%><%= order.user.first_name%></p>
+			  		<p><%= @order.user.family_name%><%= @order.user.first_name%></p>
 			  	</td>
   			</tr>
   			<tr>
@@ -56,9 +56,9 @@
 			</tr>
 		</thead>
 		<tbody>
-  		<%= @order.order_details.each do |order_detail|%>
+  		<% @order.order_details.each do |order_detail|%>
   		  <td><%= order_detail.product.product_name %></td>
-  		  <td><%= order_detail.product_prise %></td>
+  		  <td><%= order_detail.product_price %></td>
   		  <td><%= order_detail.number %></td>
   		  <td>#{ order_detail.number * order_detail.product_price }</td>
   		<% end %>
