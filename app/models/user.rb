@@ -25,5 +25,10 @@ class User < ApplicationRecord
   end
 # ----------------------------------------------------------------------------------
 
+#住所カラムの連結
+  def user_address
+    [self.prefecture_code, self.address_city, self.address_street, self.address_building].compact.join
+  end
+
 
 end

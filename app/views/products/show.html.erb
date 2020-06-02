@@ -5,7 +5,7 @@
   <div class="col-1"></div>
   <div class="col-8">
   	<div class="product-show-box">
-  		<%= attachment_image_tag @product, :product_image, :fill, 200, 300, class: "img-rounded", fallback: "no_image_lg.jpg" %>
+  		<%= attachment_image_tag @product, :product_image, :fill, 400, 200, class: "img-rounded", fallback: "no_image_lg.jpg" %>
   		<div class="product-detail">
   			<h2><%= @product.product_name %></h2>
   			<p><%= @product.product_comment %></p>
