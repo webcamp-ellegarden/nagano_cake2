@@ -21,8 +21,21 @@
 	   <%= f.label :product_image %>
 	   <%= f.attachment_field :product_image %>
 
-      <div class="form-group">
-       <%= f.submit %>
-      </div>
+     <div class="form-group">ジャンル
+      <%= f.collection_select(:category_id,Category.all, :id, :name, include_blank: "選択してください") do |category| %>
+        <%= category.label do %>
+          <%= category.check_box %>
+            <%= category.text %>
+        <% end %>
+      <% end %>
+     </div>
+
+     <div class="form-group">販売ステータス
+       <%= f.select :product_status, Product.product_statuses.keys, include_blank: "-----" %>
+     </div>
+
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
   <% end %>
 </div>
