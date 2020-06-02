@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
 #アソシエーション----------------------------------
   has_many :order_details
-  # belongs_to :category
+  belongs_to :category
   #カート部分
   has_many :carts
   has_many :users, through: :carts
