@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show, :edit, :update]
-  get 'users/:id/unregister' => 'users#unregister'
-  get 'users/:id/leave' => 'users#leave'
+  get 'users/:id/unregister' => 'users#unregister', as: 'user_unregister'
+  get 'users/:id/leave' => 'users#leave', as: 'user_leave'
   
   resources :delivery_addresses, only: [:index,:edit,:update,:destroy,:create]
 
