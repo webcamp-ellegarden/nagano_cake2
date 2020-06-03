@@ -19,8 +19,8 @@ class OrdersController < ApplicationController
   end
  # (POST)注文確認画面表示--------------------0
   def confirmation
-  	@cart = Cart.find(current_user.id)
-  	@order = Order.new(params)
+  	@carts = Cart.where(user_id: current_user.id)
+  	@order = Order.new(order_params)
   	render 'orders/confirmation'
   end
   # (POST)注文データ作成→注文確定ページ表示---------0

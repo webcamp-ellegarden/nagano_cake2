@@ -9,4 +9,8 @@ class Product < ApplicationRecord
   has_many :users, through: :carts
 
   enum product_status:{'販売停止中':0,'販売中':1}
+
+  def tax_included
+  	self.product_price.to_f * 1.08
+  end
 end

@@ -57,10 +57,12 @@
 		</thead>
 		<tbody>
   		<% @order.order_details.each do |order_detail|%>
-  		  <td><%= order_detail.product.product_name %></td>
-  		  <td><%= order_detail.product_price %></td>
-  		  <td><%= order_detail.number %></td>
-  		  <td>#{ order_detail.number * order_detail.product_price }</td>
+        <tr>
+  		    <td><%= order_detail.product.product_name %></td>
+  		    <td><%= order_detail.product_price %></td>
+  		    <td><%= order_detail.number %></td>
+  		    <td>#{ order_detail.number * order_detail.product_price }</td>
+        </tr>
   		<% end %>
  		</tbody>
   </table>
