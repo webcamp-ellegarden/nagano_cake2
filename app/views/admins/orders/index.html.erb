@@ -19,10 +19,16 @@
       <tbody>
    
         <tr>
-    	    <td><%= order.created_at %></td>
-    	    <td><%= order.user %></td>
-    	    <td><%= order.number %></td>
-            <td><%= order.order_status %></td>
+    	    <td><%= link_to order.created_at,admins_order_path(order) %></td>
+            
+    	    <td><%= order.user.first_name %><%= order.user.family_name %></td>
+          
+
+          
+    	    <td><%= order.order_details.map(&:number).sum %></td>
+          
+
+          <td><%= order.order_status %></td>
         </tr>
  
       </tbody>
