@@ -1,0 +1,36 @@
+<h1>マイページ</h1>
+<strong>登録情報</strong>
+<!-- 編集画面未実装 -->
+<%= link_to "編集する", edit_user_path %>
+<%= link_to "パスワードを変更する",  edit_user_registration_path(@user) %>
+<table>
+		<tr>
+			<td>氏名</td>
+			<td><%= @user.family_name %>  <%= @user.first_name %></td>
+		</tr>
+		<tr>
+			<td>フリガナ</td>
+			<td><%= @user.family_name_kana %>  <%= @user.first_name_kana %></td>
+		</tr>
+		<tr>
+			<td>郵便番号</td>
+			<td><%= @user.postal_code %></td>
+		</tr>
+		<tr>
+			<td>住所</td>
+			<td><%= @user.prefecture_code %> <%= @user.address_city %> <%= @user.address_street %> <%= @user.address_building %> </td>
+		</tr>
+		<tr>
+			<td>電話番号</td>
+			<td><%= @user.tel %></td>
+		</tr>
+		<tr>
+			<td>メールアドレス</td>
+			<td><%= @user.email %></td>
+		</tr>
+	</table>
+
+<strong>配送先</strong>
+<%= link_to "一覧を見る", delivery_addresses_path %><br>
+<strong>注文履歴</strong>
+<%= link_to "一覧を見る", orders_path %>
