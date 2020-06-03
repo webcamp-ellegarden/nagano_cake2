@@ -58,7 +58,7 @@
     	  <td><%= a.prefecture_code %><%= a.address_city %><%= a.address_street %><%= a.address_building %></td>
     	  <td><%= a.receiver %></td>
         <td><%= link_to "編集する", edit_delivery_address_path(a),class: "btn btn-primary" %></td>
-        <td><%= link_to "Destroy", delivery_address_path(@addresses), method: :delete, data:{confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+        <td><%= link_to "Destroy", delivery_address_path(a), method: :delete, data:{confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
 
       </tr>
  

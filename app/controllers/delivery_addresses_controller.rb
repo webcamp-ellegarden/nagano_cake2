@@ -22,8 +22,7 @@ class DeliveryAddressesController < ApplicationController
  
 
     def destroy
-      @address = DeliveryAddress.find_by(user_id: current_user.id)
-      @address.user_id = current_user.id
+      @address = DeliveryAddress.find(params[:id])
       @address.destroy
       redirect_to delivery_addresses_path
     end
