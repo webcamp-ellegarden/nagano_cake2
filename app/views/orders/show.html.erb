@@ -12,7 +12,7 @@
   				<td>
   					<p><%= @order.postal_code %></p>
 			  		<p><%= @order.delivery_address %></p>
-			  		<p><%= @order.user.family_name%><%= @order.user.first_name%></p>
+			  		<p><%= @order.receiver %></p>
 			  	</td>
   			</tr>
   			<tr>
@@ -39,7 +39,7 @@
  			  </tr>
   		  <tr>
   			  <td>ご請求金額</td>
-  			  <td>{ @order.total_prise + @order.postage }</td>
+  			  <td><%= @order.total_price + @order.postage %></td>
  			  </tr>
  			</tbody>
   	</table>
@@ -61,7 +61,7 @@
   		    <td><%= order_detail.product.product_name %></td>
   		    <td><%= order_detail.product_price %></td>
   		    <td><%= order_detail.number %></td>
-  		    <td>#{ order_detail.number * order_detail.product_price }</td>
+  		    <td><%= order_detail.number * order_detail.product_price %></td>
         </tr>
   		<% end %>
  		</tbody>
