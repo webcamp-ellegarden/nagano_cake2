@@ -3,7 +3,7 @@
 	<table>
 		<tr>
 			<td>顧客ID</td>
-			<% if @user.user_status == 0 %>
+			<% if @user.user_status == "有効" %>
 				<td>有効会員</td>
 			<% else %>
 				<td>無効会員</td>
