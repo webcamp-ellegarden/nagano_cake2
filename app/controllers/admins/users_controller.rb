@@ -22,5 +22,11 @@ class Admins::UsersController < ApplicationController
   	end
   end
 
+  private
+  def user_params
+    params.require(:user).permit(:family_name,:first_name,:email,:family_name_kana,:first_name_kana,:tel,:postal_code,:prefecture_code,:address_city,:address_street,:address_building,:password,:password_confirmation,:user_status)
+
+  end
+
 
 end
