@@ -1,13 +1,14 @@
 <h3>ジャンル一覧</h3>
 
 <div class="row">
-    <div class="col-md-5">
+    <div class="col-md-7">
 		<table class="table">
 			<%= form_for @category,:url => {:action => :create} do |f| %>
 				<tr>
 					<td><p>ジャンル</p></td>
 					<td><%= f.text_field :name %></td>
-					<td><%= f.select :category_status, Category.category_statuses.keys, include_blank: "-----" %></td>
+					<td><%= f.radio_button :category_status, "有効" %>有効</td>
+					<td><%= f.radio_button :category_status, "無効" %>無効</td>
 
 					<td><%= f.submit "追加" %></td>
 				</tr>
