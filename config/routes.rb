@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show,]
 
   resources :orders, only: [:index, :show, :new, :create]
-  get 'orders/confirmation' => 'orders#confirmation'
+  post 'orders/confirmation' => 'orders#confirmation'
   get 'orders/completation' => 'orders#completation'
 
   delete 'carts/reset' => 'carts#reset'

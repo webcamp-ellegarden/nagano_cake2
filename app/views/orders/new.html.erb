@@ -1,6 +1,6 @@
 <div class="row">
   <h2>注文情報入力</h2>
-  <%= form_for @order, url: orders_path do |f| %>
+  <%= form_for @order, url: orders_confirmation_path do |f| %>
     <%= f.radio_button :payment, "クレジットカード" %><span>クレジットカード</span><br>
     <%= f.radio_button :payment, "銀行振り込み" %><span>銀行振り込み</span>
     

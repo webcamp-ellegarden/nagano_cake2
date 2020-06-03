@@ -9,7 +9,7 @@
   		<div class="product-detail">
   			<h2><%= @product.product_name %></h2>
   			<p><%= @product.product_comment %></p>
-  			<h3>￥ (#{ <%= @product.product_price %>.to_i * 1.08 }) (税込)</h3>
+  			<h3>￥ <%= @product.tax_included.to_i %> (税込)</h3>
   		</div>
   	</div>
   	<div class="row">

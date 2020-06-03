@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   # カートページ
   def index
     @carts = Cart.where(user_id: current_user.id)
+    @total_price = @carts.map(&:subtotal).sum.to_i
   end
   #商品詳細→プルダウンの個数、保存
   def create
