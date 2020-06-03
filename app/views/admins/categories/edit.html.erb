@@ -1,11 +1,14 @@
 <h3>ジャンル編集</h3>
 
  <div class="row">
+ 	<table class="table">
 	<%= form_for @category,:url => {:action => :update} do |f| %>
-		<%= f.label :name %>
+		<%= f.label :名前 %>
 		<%= f.text_field :name %>
-		<%= f.select :category_status, Category.category_statuses.keys, include_blank: "-----" %>
+		<td><%= f.radio_button :category_status, "有効" %>有効</td>
+		<td><%= f.radio_button :category_status, "無効" %>無効</td>
 
-		<%= f.submit"変更を保存" %>
+		<%= f.submit"変更を保存" class="btn btn-default"%>
 	<% end %>
+	</table>
 </div>
