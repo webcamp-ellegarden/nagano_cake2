@@ -1,8 +1,8 @@
-<h3>ジャンル一覧</h3>
+<div class="col-sm-2 admin-head" style="background-color:#FFC;">ジャンル一覧</div>
 
 <div class="row">
-    <div class="col-md-7">
-		<table class="table">
+    <div class="col-md-7"　>
+		<table class="table"style="margin-top:30px;">
 			<%= form_for @category,:url => {:action => :create} do |f| %>
 				<tr>
 					<td><p>ジャンル</p></td>
@@ -15,7 +15,8 @@
 			<% end %>
 		</table>
 	</div>
-
+    
+    <div class="col-md-7"　>
 	<table class="table">
 		<thead>
 			<tr>
@@ -37,6 +38,7 @@
 			<% end %>
 		</tbody>
 	</table>
+	</div>
 
 </div>
 
