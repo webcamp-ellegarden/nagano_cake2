@@ -53,7 +53,6 @@ Product.create!(product_name:"洋梨のチーズタルト",
                 category_id: 1,
                 product_price:"1200",
                 product_status: 1,
-                product_image_id:"image/sample1",
                 product_comment:"洋梨とチーズの相性がバッチリ")
 
 Product.create!(product_name:"ザッハトルテ",
