@@ -19,14 +19,23 @@ class UsersController < ApplicationController
 	end
 
 	def unregister
+		@user = User.find(params[:id])
 	end
 
 	def leave
+		@user = User.find(params[:id])
+			# if @user.user_status == "validity"
+			    @user.update(user_status: "leave")
+			# end
+		redirect_to @user
 	end
 
 	private
 	def user_params
-		params.require(:user).permit(:family_name,:first_name,:email,:family_name_kana,:first_name_kana,:tel,:postal_code,:prefecture_code,:address_city,:address_street,:address_building,:password,:password_confirmation,:user_status)
+		params.require(:user).permit(:family_name,:first_name,:email,:family_name_kana,:first_name_kana,:tel,:postal_code,:prefecture_code,:address_city,:address_street,:address_building,:password,:password_confirmation,:user_status )
 
+	end
+	def set_user
+		@user = User.find(params[:id] || params[:user_id] )
 	end
 end

@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update]
   get 'users/:id/unregister' => 'users#unregister', as: 'user_unregister'
-  get 'users/:id/leave' => 'users#leave', as: 'user_leave'
+  put 'users/:id/leave' => 'users#leave', as: 'user_leave'
   
   resources :delivery_addresses, only: [:index,:edit,:update,:destroy,:create]
 
