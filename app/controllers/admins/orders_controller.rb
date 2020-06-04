@@ -11,11 +11,10 @@ class Admins::OrdersController < ApplicationController
   def update
      @order = Order.find(params[:id])
      option = params[:option]
-    if option == "2" 
+    if option == "1" 
       @order_detail = OrderDetail.find(order_details_params[:id])
       @order_detail.update(order_details_params)
-    else
-     
+    else     
       @order.update(order_params)
     end
       redirect_to admins_order_path(@order)

@@ -11,7 +11,7 @@
         <p>購入者</p>
       </div>
           <div class="col-9">
-            <p><%= @order.user.family_name %><%= @order.user.first_name %></p>
+            <p><%= link_to @order.user.user_fullname,admins_user_path(@order) %></p>
           </div>
     </div>
 
@@ -70,12 +70,11 @@
                   <td><%= order_detail.number * order_detail.product_price %></td>
                   <td>
                   <%= form_for order_detail,:url => {:action => :update} do |f| %>
-                <%= f.select :making_status, OrderDetail.making_statuses.keys %>
-                <%= f.hidden_field :id %>
-                <%= hidden_field_tag :option, "1"%>
-                <%= f.submit "更新", class: "btn btn-primary" %>
-                <% end %>
-                  <td><%= order_detail.making_status %></td>
+                    <%= f.select :making_status, OrderDetail.making_statuses.keys %>
+                      <%= f.hidden_field :id %>
+                        <%= hidden_field_tag :option, "1"%>
+                          <%= f.submit "更新", class: "btn btn-primary" %>
+                  <% end %>
                 </td>
                 </tr>
               </tbody>
