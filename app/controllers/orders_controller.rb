@@ -46,17 +46,29 @@ class OrdersController < ApplicationController
   # (POST)注文データ作成→注文確定ページ表示---------0
   def create
   	@order = Order.new(order_params)
-  	@order.user_id = current_user.id
-  	@order.save
     @carts = Cart.where(user_id: current_user.id)
+    if @order.payment == "クレジットカード"
+      Payjp.api_key = ENV['PAYJP_TEST_SECRETKEY']
+      if Payjp::Charge.create(
+          amount: @order.total_price + @order.postage, # 決済する値段
+          card: params['payjp-token'], # フォームを送信すると作成・送信されてくるトークン
+          currency: 'jpy'
+        )
+      else
+        render root_path
+      end
+    end
+  	@order.user_id = current_user.id
+    @order.total_price = @carts.map(&:subtotal).sum.to_i
+  	@order.save
     @carts.each do |cart|
-        @order_detail = OrderDetail.new
-        @order_detail.order_id = @order.id
-        @order_detail.product_id = cart.product_id
-        @order_detail.number = cart.number
-        @order_detail.product_price = cart.product.product_price
-        @order_detail.making_status = 1
-        @order_detail.save
+      @order_detail = OrderDetail.new
+      @order_detail.order_id = @order.id
+      @order_detail.product_id = cart.product_id
+      @order_detail.number = cart.number
+      @order_detail.product_price = cart.product.product_price
+      @order_detail.making_status = 1
+      @order_detail.save
     end
   	current_user.carts.destroy_all
   	render 'orders/completation'
