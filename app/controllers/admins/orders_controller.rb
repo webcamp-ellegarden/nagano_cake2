@@ -10,17 +10,22 @@ class Admins::OrdersController < ApplicationController
 
   def update
      @order = Order.find(params[:id])
-     if @order.update(order_params)
-        flash[:notice] = "successfully"
-        redirect_to admins_orders_path(@order)
-      else
-        render :index
-     end
+     option = params[:option]
+    if option == "2" 
+      @order_detail = OrderDetail.find(order_details_params[:id])
+      @order_detail.update(order_details_params)
+    else
+     
+      @order.update(order_params)
+    end
+      redirect_to admins_order_path(@order)
    end
 
     private
      def order_params
        params.require(:order).permit(:order_status)
      end
-  
+     def order_details_params
+       params.require(:order_detail).permit(:id,:making_status)
+     end
 end

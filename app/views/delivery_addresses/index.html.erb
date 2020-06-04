@@ -4,7 +4,7 @@
 
    <div class="field">
      <%= f.label :郵便番号（ハイフンなし） %><br />
-     <%= f.text_field :portal_code, autofocus: true, autocomplete: "postal_code" %>
+     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
    </div>
 <!-- -----------prefecture_code----------- -->
    <div class="field">
@@ -54,7 +54,7 @@
     <tbody>
    
       <tr>
-    	  <td><%= a.portal_code %></td>
+    	  <td><%= a.postal_code %></td>
     	  <td><%= a.prefecture_code %><%= a.address_city %><%= a.address_street %><%= a.address_building %></td>
     	  <td><%= a.receiver %></td>
         <td><%= link_to "編集する", edit_delivery_address_path(a),class: "btn btn-primary" %></td>
