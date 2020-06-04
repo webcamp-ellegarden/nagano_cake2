@@ -1,5 +1,7 @@
-<h3>会員一覧</h3>
 
+<div class="col-sm-2 admin-head" style="background-color:#FFC;">会員一覧</div>
+
+<div class="col-sm-8" style="margin:0 auto; padding-top:30px">
 	<table class="table">
 		<thead>
 			<tr>
@@ -19,8 +21,9 @@
 	                <% end %>
 			    </td>
 			    <td><%= user.email %>	</td>
-				<td><%= user.user_status %>
+				<td><%= user.user_status %></td>
 		    </tr>
 			<% end %>
 		</tbody>
 	</table>
+</div>
