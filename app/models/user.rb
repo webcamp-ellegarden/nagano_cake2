@@ -13,7 +13,8 @@ class User < ApplicationRecord
   #----------------------------------------
 
 #user_status
-    enum user_status:{'有効':0,'退会済み':1}
+    enum user_status:{validity: 0 ,leave: 1 }
+
 
 #  jp_prefecture用メソッド------------------------------------------------------------
   include JpPrefecture
