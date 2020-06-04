@@ -31,15 +31,10 @@
   <%= f.text_field :tel, autofocus: true, autocomplete: "tel" %>
 </div>
 
-<!-- password -->
-<div class="field">
-  <%= f.label :パスワード（６文字以上） %>
-  <% if @minimum_password_length %>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
-</div>
+
 
   <div class="actions">
-    <%= f.submit "編集内容を保存する" %><%= link_to "退会する",  user_unregister_path %>
+    <%= f.submit "編集内容を保存する" %>
   </div>
+  <%= link_to "退会する",  user_unregister_path %>
 <% end %>
