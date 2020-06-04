@@ -15,19 +15,16 @@
     </thead>
   
 
-    <% @orders.each do |order| %>
+    <% @order.each do |order| %>
       <tbody>
    
         <tr>
     	    <td><%= link_to order.created_at,admins_order_path(order) %></td>
             
-    	    <td><%= order.user.first_name %><%= order.user.family_name %></td>
-          
-
+    	    <td><%= order.user.family_name %><%= order.user.first_name %></td>
           
     	    <td><%= order.order_details.map(&:number).sum %></td>
           
-
           <td><%= order.order_status %></td>
         </tr>
  
