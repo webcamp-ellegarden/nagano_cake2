@@ -1,41 +1,99 @@
-
-
-<%= form_for @address do |f| %>
-
-   <div class="field">
-     <%= f.label :郵便番号（ハイフンなし） %><br />
-     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-   </div>
-<!-- -----------prefecture_code----------- -->
-   <div class="field">
-     <%= f.label :都道府県 %><br />
-     <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name ,include_blank: '都道府県' %>
-   </div>
-<!-- address_city -->
-   <div class="field">
-     <%= f.label :市区町村 %><br />
-     <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city" %>
-   </div>
-<!-- adress_street -->
-   <div class="field">
-     <%= f.label :番地 %><br />
-     <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street" %>
-   </div>
-<!-- address_building -->
-   <div class="field">
-     <%= f.label :建物 %><br />
-     <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building" %>
-   </div>
-
-   <div class="field">
-   	  <%= f.label :宛名 %><br />
-   	  <%= f.text_field :receiver %>
-   </div>
-
-   <div class="field">
-     <div class="text-right">
-      <%= f.submit "編集する", class: "btn btn-success" %>
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #c85179;border-left: 10px solid #c85179;padding: 7px;">
+        <h3>配送先編集</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Edit</p>
+          </div>
+      </div>
     </div>
-  </div>
-<% end %>
 
+      <%= form_for @address do |f| %>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :郵便番号（ハイフンなし） %>
+              </div>
+            </div>
+              <div class="col-3">
+                <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",class: "input form-control" %>
+              </div>
+          </div>
+        </div>
+<!-- -----------prefecture_code----------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :都道府県 %>
+              </div>
+            </div>
+              <div class="col-3">
+                <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name ,include_blank: '都道府県' %>
+              </div>
+          </div>
+        </div>
+<!-- address_city -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :市区町村 %>
+              </div>
+            </div>
+              <div class="col-3">
+                <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city",class: "input form-control" %>
+              </div>
+          </div>
+        </div>
+<!-- adress_street -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :番地 %>
+              </div>
+            </div>
+              <div class="col-3">
+                <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street",class: "input form-control" %>
+              </div>
+          </div>
+        </div>
+<!-- address_building -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :建物 %>
+              </div>
+            </div>
+              <div class="col-8">
+                <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building",class: "input type=text form-control " %>
+              </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-4">
+              <div class="text-right">
+                <%= f.label :宛名 %>
+              </div>
+            </div>
+              <div class="col-3">
+                <%= f.text_field :receiver,class: "input form-control" %>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <div class="text-right">
+           <%= f.submit "編集する", class: "btn btn-outline-success" %>
+         </div>
+       </div>
+     <% end %>
+
+   
