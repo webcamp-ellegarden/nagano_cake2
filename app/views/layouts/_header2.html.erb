@@ -2,6 +2,17 @@
     <%= link_to root_path do %>
       <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
     <% end %>
+    <div class="col-lg-4 dropdown logo">
+      <% if admin_signed_in? %>
+        <%= link_to(admins_homes_top_path) do %>
+          <%= image_tag 'logo.jpg', size: "120x75" %>
+        <% end %>
+      <% else %>
+        <%= link_to(root_path) do %>
+          <%= image_tag 'logo.jpg', size: "120x75" %>
+        <% end %>
+      <% end %>
+    </div>
 <!-- ------------------------------------------user ------------------------------------------------->
   <% if user_signed_in? %>
 

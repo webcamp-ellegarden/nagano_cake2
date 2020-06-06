@@ -1,6 +1,6 @@
 
 	<p> <%= @user.family_name %><%= @user.first_name %>の会員詳細</p>
-	<table>
+	<table class="table">
 		<tr>
 			<td>顧客ID</td>
 			<% if @user.user_status == "有効" %>
@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 			<td>住所</td>
-			<td><%= @user.prefecture_code %> <%= @user.address_city %> <%= @user.address_street %> <%= @user.address_building %> </td>
+			<td> <%= @user.user_address %></td>
 		</tr>
 		<tr>
 			<td>電話番号</td>
@@ -34,7 +34,8 @@
 			<td><%= @user.email %></td>
 		</tr>
 		<tr>
-			<td><%= link_to "編集する",edit_admins_user_path(@user) %></td>
+			<td></td>><td></td>
+			<td><%= link_to "編集する",edit_admins_user_path(@user),class: "btn btn-primary" %></td>
 			<td><%= link_to "注文履歴一覧を見る",admins_orders_path%></td>
 	    </tr>
 	</table>
