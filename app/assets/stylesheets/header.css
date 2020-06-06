@@ -127,6 +127,7 @@
     background-color: rgba(50,50,50,0.2);
 }
 
+
 .logo{
 
 	position: absolute;
@@ -134,3 +135,15 @@
 	top: 0px;
 
 }
+
+.category {
+	position: absolute;
+	right: 120px;
+	top: 20px;
+}
+.member {
+	position: absolute;
+	right: 380px;
+	top: 20px;
+}
+
