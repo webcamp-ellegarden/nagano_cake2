@@ -19,6 +19,7 @@
         <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
       </div>
     </div>
+
     <%= link_to root_path do %>
        <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
     <% end %>
@@ -26,8 +27,23 @@
        <button type="button" class="btn btn-outline-dark products">商品一覧</button>
     <% end %>
 
+<!-- ロゴ部分 -->
+    <div class="col-lg-4 dropdown logo">
+      <% if admin_signed_in? %>
+        <%= link_to(admins_homes_top_path) do %>
+          <%= image_tag 'logo.jpg', size: "120x75" %>
+        <% end %>
+      <% else %>
+        <%= link_to(root_path) do %>
+          <%= image_tag 'logo.jpg', size: "120x75" %>
+        <% end %>
+      <% end %>
+    </div>
+
+
     <% if user_signed_in? %>
       <%= link_to carts_path do %>
+
        <button type="button" class="btn btn-dark cart"><i class="fas fa-shopping-cart"></i></button>
       <% end %>
       <%= link_to user_path(current_user) do %>

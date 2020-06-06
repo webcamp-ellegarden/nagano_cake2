@@ -1,7 +1,7 @@
 <h1>商品詳細</h1>
 
 
-<%= attachment_image_tag @product, :product_image, :fill, 300, 300, format: 'jpeg' %>
+<%= attachment_image_tag @product, :product_image, format: 'jpeg' , size: "300x300"%>
 
 <p>商品名:<%= @product.product_name %></p>
 <p>商品説明:<%= @product.product_comment %></p>

@@ -126,3 +126,11 @@
 .hover-box:hover {
     background-color: rgba(50,50,50,0.2);
 }
+
+.logo{
+
+	position: absolute;
+	left: 650px;
+	top: 0px;
+
+}
