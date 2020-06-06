@@ -1,3 +1,4 @@
+
 .nav {
 	width: 100%;
 }
@@ -37,10 +38,91 @@
  	flex-wrap: wrap;
  	justify-content: space-between;
  }
+ .product-box {
+ 	margin: 0 50px;
+ }
  .product-image {
- 	width: 100px;
- 	height: 100px;
+ 	width: 200px;
+ 	height: 200px;
  	background-color: url(no_image_lg.jpg);
  	background-size: cover;
  	background-position:center;
  }
+
+.m-top16 {
+	margin-top: 16px;
+}
+.pink-line {
+	width: 100%;
+	height: 2px;
+	background-color: #E63462;
+}
+
+
+
+.font12 {
+	font-size: 12px;
+	color: white;
+}
+
+.header-box {
+	position: relative;
+	height: 100px;
+}
+.cart {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.mypage {
+	position: absolute;
+	right: 250px;
+	top: 20px;
+}
+.login-out {
+	position: absolute;
+	right: 100px;
+	top: 20px;
+}
+.search {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+.home {
+	position: absolute;
+	left: 250px;
+	top: 20px;
+}
+.products {
+	position: absolute;
+	left: 350px;
+	top: 20px;
+}
+.registration {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
+.flex {
+	display: flex;
+}
+.b-line {
+	width: 100%;
+	height: 1px;
+	background-color: gray;
+}
+
+.image-box {
+	position: relative;
+}
+.hover-box {
+	width: 150px;
+	height: 150px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.hover-box:hover {
+    background-color: rgba(50,50,50,0.2);
+}

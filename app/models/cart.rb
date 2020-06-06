@@ -2,6 +2,7 @@ class Cart < ApplicationRecord
   belongs_to :user
   belongs_to :product
 
+  attribute :number, :integer, default: 1
 
   def tax_included
   	self.product.product_price.to_f * 1.08
