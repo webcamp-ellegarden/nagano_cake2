@@ -83,7 +83,7 @@
 <script>
   $(document).on('turbolinks:load', function() {
       var form = $("#charge-form");
-      Payjp.setPublicKey('pk_test_0383a1b8f91e8a6e3ea0e2a9');
+      Payjp.setPublicKey('ENV['PAYJP_TEST_PUBLICKEY']');
 
       $("#charge-form").on("click", "#submit-button", function(e) {
         e.preventDefault();
