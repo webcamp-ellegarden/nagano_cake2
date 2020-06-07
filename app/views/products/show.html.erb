@@ -27,11 +27,17 @@
           <div class="row" style="height: 10px"></div>
           <div class="row">
             <div class="col-9">
-              <% if user_signed_in? %>
-              　<%= button_tag '<i class="fas fa-shopping-cart"></i> カートに入れる'.html_safe, :type => "submit", :class =>"btn btn-primary btn-block " %>
+              <% if @product.product_status == "販売中" %>
+                <% if user_signed_in? %>
+              　  <%= button_tag '<i class="fas fa-shopping-cart"></i> カートに入れる'.html_safe, :type => "submit", :class =>"btn btn-primary btn-block " %>
+                <% else %>
+                  <button type="button" class="btn btn-primary btn-block disabled" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-shopping-cart"></i> カートに入れる
+                  </button>
+                <% end %>
               <% else %>
-                <button type="button" class="btn btn-primary btn-block disabled" data-toggle="modal" data-target="#exampleModal">
-                   <i class="fas fa-shopping-cart"></i> カートに入れる
+                <button type="button" class="btn btn-secoudaly btn-block disabled" data-toggle="modal" data-target="#exampleModal">
+                    SOLD OUT
                 </button>
               <% end %>
             </div>
