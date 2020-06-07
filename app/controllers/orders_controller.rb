@@ -47,6 +47,7 @@ class OrdersController < ApplicationController
   def create
   	@order = Order.new(order_params)
     @carts = Cart.where(user_id: current_user.id)
+    @order.total_price = @carts.map(&:subtotal).sum.to_i
     if @order.payment == "クレジットカード"
       Payjp.api_key = ENV['PAYJP_TEST_SECRETKEY']
       if Payjp::Charge.create(
@@ -59,7 +60,6 @@ class OrdersController < ApplicationController
       end
     end
   	@order.user_id = current_user.id
-    @order.total_price = @carts.map(&:subtotal).sum.to_i
   	@order.save
     @carts.each do |cart|
       @order_detail = OrderDetail.new

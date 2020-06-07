@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_055926) do
     t.integer "category_id", null: false
     t.string "product_name", null: false
     t.string "product_price", null: false
-    t.string "product_image_id", null: false
+    t.string "product_image_id"
     t.integer "product_status", null: false
     t.text "product_comment", null: false
     t.datetime "created_at", null: false
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2020_06_07_055926) do
     t.string "address_city", null: false
     t.string "address_street", null: false
     t.string "address_building"
-    t.integer "user_status", null: false
+    t.integer "user_status", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
