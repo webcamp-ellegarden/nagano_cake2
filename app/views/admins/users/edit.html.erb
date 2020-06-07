@@ -1,6 +1,6 @@
 <div class="row">
 	<p> <%= @user.user_fullname %>の会員編集</p>
-	<table class="table">
+	<table class="table ">
 		<%= form_for @user,:url => {:action => :update} do |f| %>
 			<tr>
 				<td>会員ID</td>
@@ -15,7 +15,7 @@
 				<td>フリガナ</td>
 				<td><%= f.text_field :family_name_kana %>  <%= f.text_field :first_name_kana %></td>
 			</tr>
-			<%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
+			 <%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
 			<tr>	
 				<td>電話番号</td>
 				<td><%= f.text_field :tel %></td>
