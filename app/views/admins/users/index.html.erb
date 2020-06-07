@@ -34,9 +34,12 @@
 			    <td><%= user.email %></td>
 				<td><%= user.user_status %></td>
 		    </tr>
-		  <% end %>
+
+			<% end %>
 		</tbody>
-	  <%= paginate @users %>
 	</table>
+	<div class="col-7">
+		 <%= paginate @users %>
+	</div>
   </div>
 </div>

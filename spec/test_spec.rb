@@ -1,13 +1,29 @@
 require 'rails_helper'
 RSpec.describe "Admins", type: :request do
 
-    describe '新規投稿ページ' do
-        context "新規投稿ページが正しく表示される" do
-            before do
-                get new_admin_registration_path
-            end
-            it 'リクエストは200 OKとなること' do
-                expect(response.status).to eq 200
-            end
+  describe 'asminログインページ' do
+    context "ログインページが正しく表示される" do
+      before do
+        get new_admin_session_path
+      end
+        it 'リクエストは200 OKとなること' do
+          expect(response.status).to eq 200
         end
     end
+  end
+  describe 'asminログイン' do
+    let(:admin) { create(:admin) }
+      before do
+        get new_admin_session_path
+      end
+      context 'ログイン画面に遷移' do
+        let(:test_admin) { admin }
+          it 'ログインに成功する' do
+            fill_in 'admin[email]', with: test_admin.email
+            fill_in 'admin[password]', with: test_admin.password
+            click_button 'ログイン'
+            expect(page).to have_content '本日の注文件数'
+         end
+    end     
+  end
+end

@@ -25,7 +25,6 @@ class Admins::CategoriesController < ApplicationController
   	if @category.update(category_params)
   		redirect_to admins_categories_path
   	else
-      flash[:notice]="error"
   		render "edit"
   	end
   end
