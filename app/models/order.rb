@@ -8,6 +8,5 @@ class Order < ApplicationRecord
 	enum order_status:{'入金待ち':0,'入金確認':1,'製作中':2,'発送準備中':3, '発送準備':4}
 	attribute :order_status, :integer, default: 0
 
-	attribute :total_price, :integer, default: 1600
 	attribute :postage, :integer, default: 800
 end

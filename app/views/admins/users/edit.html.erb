@@ -1,4 +1,5 @@
 
+
 <body style="background: #FFFF;color: #000; font-family:monospace" >
   <div class="container">
     <div class="form-group">
@@ -81,6 +82,42 @@
           </div>
 
 				  <%= f.submit "変更を保存する",class: "btn btn-outline-dark" %>
+
+
+<div class="row">
+	<p> <%= @user.user_fullname %>の会員編集</p>
+	<table class="table ">
+		<%= form_for @user,:url => {:action => :update} do |f| %>
+			<tr>
+				<td>会員ID</td>
+				<td><%=@user.id%></td>
+				
+			</tr>
+			<tr>
+				<td>氏名</td>
+				<td><%= f.text_field :family_name %>  <%= f.text_field :first_name %></td>
+			</tr>
+			<tr>
+				<td>フリガナ</td>
+				<td><%= f.text_field :family_name_kana %>  <%= f.text_field :first_name_kana %></td>
+			</tr>
+			 <%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
+			<tr>	
+				<td>電話番号</td>
+				<td><%= f.text_field :tel %></td>
+			</tr>
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+				<td>会員ステータス</td>
+				<td><%= f.radio_button :user_status, "有効" %>有効
+			     <%= f.radio_button :user_status, "退会済み" %>退会済み</td>
+			</tr>
+			<tr>
+				<td><%= f.submit "変更を保存する" %></td>
+		    </tr>
 
 	    <% end %>
 </div>

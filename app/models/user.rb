@@ -14,6 +14,7 @@ has_many :delivery_addresses, dependent: :destroy
 
 #user_status
 enum user_status:{ 有効: 0 , 退会済: 1 }
+attribute :user_status, :integer, default: 0
 
 def active_for_authentication?
   super && (self.user_status == "有効" )
