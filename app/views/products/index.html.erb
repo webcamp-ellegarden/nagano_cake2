@@ -4,15 +4,15 @@
 	</div>
 	<div class="col-11">
 		<% if @category == "1" %>
-		  <h3 class="m-top16">ケーキ一覧</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Products/ケーキ</h3><span>(全<%= @products.count %>件)</span>
 		<% elsif @category == "2" %>
-		  <h3 class="m-top16">焼き菓子一覧</h3><spam>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Products/焼き菓子</h3><spam>(全<%= @products.count %>件)</span>
 		<% elsif @category == "3" %>
-		  <h3 class="m-top16">プリン一覧</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Products/プリン</h3><span>(全<%= @products.count %>件)</span>
 		<% elsif @category == "4" %>
-		  <h3 class="m-top16">キャンディ一覧</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Products/キャンディ</h3><span>(全<%= @products.count %>件)</span>
 		<% else %>
-		  <h3 class="m-top16">商品一覧</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Products</h3><span>(全<%= @products.count %>件)</span>
 		<% end %>
 		<div class="row b-line"></div>
 		<div class="row" style="height: 50px;"></div>
@@ -23,13 +23,24 @@
 			  	  <%= link_to product_path(product) do %>
 			  	    <div class="hover-box"></div>
 			  	  <% end %>
+			  	  <% if product.product_status!= "販売中" %>
+			  	    <div class="rounded-circle soldout">
+			  	  	  <span>Sold Out</span>
+			  	    </div>
+			  	  <% end %>
 			  	  <%= attachment_image_tag product, :product_image, :fill, 150, 150, class: "img-rounded",fallback: "no_image_lg.jpg" %>
 			    </div>
-			  	<p>"<%= product.product_name %>"</p>
-			  	<p>￥<%= product.product_price %></p>
+			  	<p>"<%= product.product_name %>"<br>
+			  		￥<%= product.product_price %></p>
+			  	<div class="row" style="height: 50px;"></div>
 			  </div>
 			<% end %>
-			<%= paginate @products %>
+		</div>
+		<div class="row">
+		  <div class="col-5"></div>
+		  <div class="col-7">
+		    <%= paginate @products %>
+		  </div>
 		</div>
 	</div>
 </div>
