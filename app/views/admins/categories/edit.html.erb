@@ -1,25 +1,27 @@
 <div class="col-sm-2 admin-head" style="background-color:#FFC;">ジャンル編集</div>
 
  <div class="row">
+ 	<%= form_for @category,:url => {:action => :update} do |f| %>
  	<div class="col-sm-6">
  	<table class="table" style="margin-top:30px;">
-	<%= form_for @category,:url => {:action => :update} do |f| %>
-		<tr>
-			<td><%= f.label :名前 %></td>
-			<td><%= f.text_field :name %></td>
-		</tr>
-		<tr>
-			<td></td>
-		<td><%= f.radio_button :category_status, "有効" %>有効
-			<%= f.radio_button :category_status, "無効" %>無効
+		
+			<tr>
+				<td><%= f.label :名前 %></td>
+				<td><%= f.text_field :name %></td>
+			</tr>
+			<tr>
+				<td></td>
+			<td><%= f.radio_button :category_status, "有効" %>有効
+				<%= f.radio_button :category_status, "無効" %>無効
+			</td>
+			</tr>
+	        <tr><td></td><td></td>
+	        	<td>
+			<%= f.submit"変更を保存", class: "btn btn-defolt"%>
 		</td>
-		</tr>
-        <tr><td></td><td></td>
-        	<td>
-		<%= f.submit"変更を保存",class: "btn btn-defolt"%>
-	</td>
-	    </tr>
-	<% end %>
+		    </tr>
+
 	</table>
 </div>
+<% end %>
 </div>
