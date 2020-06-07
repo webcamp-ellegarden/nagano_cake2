@@ -1,3 +1,89 @@
+
+
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3><%= @user.user_fullname %>の会員編集</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>user edit</p>
+          </div>
+      </div>
+    </div>
+
+      <%= form_for @user,:url => {:action => :update} do |f| %>
+        <div class="container">
+  	      <div class="form-group">
+		        <div class="row">
+		        	<div class="col-2">
+			          <p>会員ID</p>
+			        </div>
+			        <div class="col-2">
+                <%=@user.id%>
+              </div>
+            </div>
+          </div>
+
+					<div class="form-group">
+						<div class="row">
+						  <div class="col-2">
+							  <p>氏名</p>
+						  </div>
+						  <div class="col-3">
+				        <%= f.text_field :family_name,class: "input form-control" %>
+				      </div>
+				      <div class="col-4">
+				      	<%= f.text_field :first_name,class: "input form-control" %>
+				      </div>
+				    </div>
+				  </div>
+
+				  <div class="form-group">
+						<div class="row">
+						  <div class="col-2">
+							  <p>フリガナ</p>
+						  </div>
+						  <div class="col-3">
+				        <%= f.text_field :family_name_kana,class: "input form-control" %>
+				      </div>
+				      <div class="col-4">
+				      	<%= f.text_field :first_name_kana,class: "input form-control" %>
+				      </div>
+				    </div>
+				  </div>
+
+          <%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
+
+          <div class="form-group">
+		        <div class="row">
+		        	<div class="col-5">電話番号
+                <%= f.text_field :tel,class: "input form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+		        <div class="row">
+		        	<div class="col-5">メールアドレス
+                <%= f.text_field :email,class: "input form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+		        <div class="row">
+		        	<div class="col-3">
+		        		会員ステータス
+		        	</div>
+		        	<div class="col-3">
+                <%= f.radio_button :user_status, "有効" %>有効&nbsp;&nbsp;<%= f.radio_button :user_status, "退会済み" %>退会済み
+              </div>
+            </div>
+          </div>
+
+				  <%= f.submit "変更を保存する",class: "btn btn-outline-dark" %>
+
+
 <div class="row">
 	<p> <%= @user.user_fullname %>の会員編集</p>
 	<table class="table ">
@@ -32,6 +118,6 @@
 			<tr>
 				<td><%= f.submit "変更を保存する" %></td>
 		    </tr>
+
 	    <% end %>
-	</table>
 </div>
