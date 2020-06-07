@@ -25,9 +25,12 @@ class UsersController < ApplicationController
 	def leave
 		@user = User.find(params[:id])
 			# if @user.user_status == "validity"
-			    @user.update(user_status: "leave")
+			    @user.update(user_status: "退会済" )
 			# end
-		redirect_to @user
+        #ログアウトさせる
+        reset_session
+        flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+        redirect_to root_path
 	end
 
 	private

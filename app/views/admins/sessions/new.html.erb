@@ -1,3 +1,4 @@
+<%= flash[:notice] %>
 <h2>管理者ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,4 +24,6 @@
   </div>
 <% end %>
 
-<%= render "admins/shared/links" %>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "パスワードをお忘れの方は", new_password_path(resource_name) %><br />
+<% end %>
