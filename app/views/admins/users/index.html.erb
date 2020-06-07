@@ -1,29 +1,42 @@
 
-<div class="col-sm-2 admin-head" style="background-color:#FFC;">会員一覧</div>
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>会員一覧</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Users</p>
+          </div>
+      </div>
+    </div>
+<div class="container">
 
-<div class="col-sm-8" style="margin:0 auto; padding-top:30px">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>会員id</th>
-				<th>氏名</th>
-				<th>メールアドレス</th>
-				<th>ステータス</th>
-			</tr>
-		</thead>
 
-		<tbody>
-			<% @users.each do |user| %>
+
+
+
+  <div class="col-12">
+    <table class="table table-hover text-center">
+	  <thead>
+	    <tr>
+		  <th>会員id</th>
+		  <th>氏名</th>
+		  <th>メールアドレス</th>
+		  <th>ステータス</th>
+		</tr>
+	  </thead>
+
+	    <tbody>
+		  <% @users.each do |user| %>
 			<tr>
 				<td><%= user.id %>	</td>
-				<td><%= link_to(admins_user_path(user)) do %>
-					<%=user.user_fullname%>
-	                <% end %>
-			    </td>
-			    <td><%= user.email %>	</td>
+				<td><%= link_to user.user_fullname,admins_user_path(user),:style=>"color:#000;" %></td>
+			    <td><%= user.email %></td>
 				<td><%= user.user_status %></td>
 		    </tr>
-			<% end %>
+		  <% end %>
 		</tbody>
+	  <%= paginate @users %>
 	</table>
+  </div>
 </div>

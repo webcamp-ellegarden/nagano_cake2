@@ -10,8 +10,11 @@
       </div>
     </div>
 
-<div class="text-right">
-	<%= link_to "＋", new_admins_product_path, class:"btn btn-outline-dark rounded-circle width:100px;height:100px;" %> 
+<div class="text-center">
+  <div class="wrap">
+
+    <%= link_to "New product", new_admins_product_path,class: "button text-center " %>
+    </div>
 </div>
 
 <table class="table table-hover">
@@ -24,11 +27,11 @@
 			<th>ステータス</th>
     </tr>
   </thead>
-  
+
 
   <% @products.each do |product| %>
     <tbody>
-   
+
       <tr>
     	  <td><%= product.id %></td>
     	  <td><%= link_to product.product_name, admins_product_path(product),:style=>"color:#000;" %></td>
@@ -37,7 +40,11 @@
         <td><%= product.product_status %></td>
 
       </tr>
- 
+
     </tbody>
   <% end %>
+  <%= paginate @products %>
 </table>
+
+
+
