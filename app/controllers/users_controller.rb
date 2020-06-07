@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 	def leave
 		@user = User.find(params[:id])
 			# if @user.user_status == "validity"
-			    @user.update(user_status: 1 )
+			    @user.update(user_status: "退会済" )
 			# end
         #ログアウトさせる
         reset_session
