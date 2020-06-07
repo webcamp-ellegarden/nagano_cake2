@@ -4,15 +4,15 @@
 	</div>
 	<div class="col-11">
 		<% if @category == "1" %>
-		  <h3 class="m-top16">Products/ケーキ</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Product/ケーキ</h3><span>(全<%= @products.count %>件)</span>
 		<% elsif @category == "2" %>
-		  <h3 class="m-top16">Products/焼き菓子</h3><spam>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Product/焼き菓子</h3><spam>(全<%= @products.count %>件)</span>
 		<% elsif @category == "3" %>
-		  <h3 class="m-top16">Products/プリン</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Product/プリン</h3><span>(全<%= @products.count %>件)</span>
 		<% elsif @category == "4" %>
-		  <h3 class="m-top16">Products/キャンディ</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Product/キャンディ</h3><span>(全<%= @products.count %>件)</span>
 		<% else %>
-		  <h3 class="m-top16">Products</h3><span>(全<%= @products.count %>件)</span>
+		  <h3 class="m-top16">Product</h3><span>(全<%= @products.count %>件)</span>
 		<% end %>
 		<div class="row b-line"></div>
 		<div class="row" style="height: 50px;"></div>
