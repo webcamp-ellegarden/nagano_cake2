@@ -1,0 +1,49 @@
+<div class="row">
+  <h2>注文情報入力</h2>
+</div>
+<div class="row">
+  <%= form_for @order, url: orders_confirmation_path do |f| %>
+  <!-- --------------------------------支払い方法選択-------------------------------------- -->
+    <h3 style="margin-top: 20px;">■ 支払い方法</h3>
+    <%= f.radio_button :payment, "クレジットカード" %><span>クレジットカード</span><br>
+    <%= f.radio_button :payment, "銀行振り込み" %><span>銀行振り込み</span><br>
+
+  <!-- ----------------------------------届け先選択---------------------------------------- -->
+    <h3 style="margin-top: 20px;">■ お届け先</h3>
+    <!-- --------------------(1)自分の住所を選択--------------------------- -->
+    <h5><%= radio_button_tag :option, "1", name="option" %> ご自身の住所</h5>
+
+    <p><%= current_user.user_address %></p>
+    <!-- ---------------------(2)登録した住所から選択------------------------ -->
+    <h5><%= radio_button_tag :option, "2", name="option" %> 登録済み住所から選択</h5>
+      <%= select_tag 'address_select', options_for_select(@delivery_addresses.map(&:pullarray_address), "-----") %><br>
+
+    <!-- -----------------------(3)新規の配達先を入力----------------------- -->
+    <h5 style="margin-top: 15px;"><%= radio_button_tag :option, "3", name="option" %> 新規登録</h5>
+
+    <p>宛名</p><%= f.text_field :receiver %><br>
+
+    <%= fields_for @delivery_address do |address| %>
+      <p>郵便番号</p><%= address.text_field :postal_code %>
+      <div class="field">
+        <%= address.label :都道府県 %><br />
+        <%= address.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name ,include_blank: '都道府県' %>
+      </div>
+      <div class="field">
+        <%= address.label :市区町村 %><br />
+        <%= address.text_field :address_city, autofocus: true, autocomplete: "address_city" %>
+      </div>
+      <div class="field">
+        <%= address.label :番地 %><br />
+        <%= address.text_field :address_street, autofocus: true, autocomplete: "address_street" %>
+      </div>
+      <div class="field">
+        <%= address.label :建物 %><br />
+        <%= address.text_field :address_building, autofocus: true, autocomplete: "address_building" %>
+      </div>
+    <% end %>
+    <!-- ----------------------------------------------------------------- -->
+    <%= f.submit "確認画面に進む" %>
+  <% end %>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="header pink">
+	<div class="container">
+	  <div class="row">
+	  	<div class="col-lg-4"></div>
+
+	  	<div class="col-lg-4">
+            <% if admin_signed_in? %>
+              <%= link_to(admins_homes_top_path) do %>
+	  			<h1 class="cream-sentence">NAGANO CAKE <i class="fas fa-birthday-cake"></i></h1>
+	  		  <% end %>
+            <% else %>
+	  		  <%= link_to(root_path) do %>
+	  			<h1 class="cream-sentence">NAGANO CAKE <i class="fas fa-birthday-cake"></i></h1>
+	  		  <% end %>
+	  		<% end %>
+	  	</div>
+
+
+
+	  	<div class="col-lg-4"></div>
+	  </div>
+		<div class="row">
+		  <nav class="nav">
+		    <ul class="navigation">
+		      <% if admin_signed_in? %>
+		        <li></li>
+				<li><%= link_to "商品一覧", admins_products_path %></li>
+				<li></li>
+				<li><%= link_to "会員一覧", admins_users_path %></li>
+				<li></li>
+				<li><%= link_to "注文履歴一覧", admins_orders_path %></li>
+				<li></li>
+				<li><%= link_to "ジャンル一覧", admins_categories_path %></li>
+				<li></li>
+				<li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+				<li></li>
+		      <% elsif user_signed_in? %>
+		        <li></li>
+				<li><%= link_to "マイページ", user_path(current_user) %></li>
+		    	<li></li>
+				<li><%= link_to "商品一覧", products_path(category: "0") %></li>
+				<li></li>
+				<li><%= link_to "カート", carts_path %></li>
+				<li></li>
+				<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete%></li>
+				<li></li>
+		      <% else %>
+		    	<li></li>
+				<li><%= link_to "商品一覧", products_path(category: "0") %></li>
+				<li></li>
+				<li><%= link_to "新規登録", new_user_registration_path %></li>
+				<li></li>
+				<li><%= link_to "ログイン", new_user_session_path %></li>
+				<li></li>
+			  <% end %>
+			</ul>
+		  </nav>
+		  <% if user_signed_in? %>
+		    <p>ようこそ <%= current_user.family_name %>さん</p>
+		  <% end %>
+	    </div>
+	</div>
+</div>

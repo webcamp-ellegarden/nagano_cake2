@@ -1,0 +1,79 @@
+<!-- カートページ -->
+<% if current_user.carts.count != 0 %>
+<div class="row">
+	<div class="col-9">
+    <h2>ショッピングカート</h2>
+  </div>
+  <div class="col-3">
+  	<%= link_to carts_reset_path, method: :delete do %>
+		<button type="button" class="btn btn-danger">カートを空にする</button>
+	<% end %>
+  </div>
+</div>
+<div class="row">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>単価</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @carts.each do |cart| %>
+		  <tr>
+		  	<td><%= attachment_image_tag cart.product, :product_image, :fill, 100, 100, class: "img-rounded", fallback: "no_image_lg.jpg" %><%= cart.product.product_name %></td>
+		  	<td><%= cart.tax_included.to_i %></td>
+		  	<td>
+		  		<%= form_for cart do |f| %>
+		  		  <%= f.number_field :number, min: 1, max: 100 %>
+		  		  <%= f.submit "変更する" %>
+		  		<% end %>
+		  	</td>
+		  	<td><%= cart.tax_included.to_i*cart.number %></td>
+		  	<td>
+			  <%= link_to cart_path(cart), method: :delete do %>
+			    <button type="button" class="btn btn-outline-danger">削除</button>
+			  <% end %>
+		  	</td>
+		  </tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
+<div class="row">
+  <div class="col-7"></div>
+  <div class="col-5">
+  <table class="table table-bordered">
+    <tbody>
+	  <tr>
+		<td>合計金額</td>
+		<td><%= @total_price %></td>
+	  </tr>
+	</tbody>
+  </table>
+  </div>
+</div>
+<div class="row">
+	<div class="col-4"></div>
+	<div class="col-8">
+	    <%= link_to new_order_path do %>
+          <button type="button" class="btn btn-primary btn-lg">情報入力へ進む</button>
+        <% end %>
+        <%= link_to products_path do %>
+          <button type="button" class="btn btn-outline-primary btn-lg">買い物を続ける</button>
+        <% end %>
+	</div>
+</div>
+
+<% else %>
+    <div class="row" style="height: 100px;"></div>
+    <div class="row">
+      <div class="col-12">
+    	<h4 class="text-secondary text-center">カートは空です。</h4>
+    	<p class="text-secondary text-center" style="font-size: 100px;"><i class="fas fa-shopping-cart"></i></p>
+      </div>
+    </div>
+<% end %>

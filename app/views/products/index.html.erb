@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-1"></div>
+	<div class="col-11">
+		<% if @category == "1" %>
+		  <h3 class="m-top16">Product/ケーキ</h3><span>(全<%= @products.count %>件)</span>
+		<% elsif @category == "2" %>
+		  <h3 class="m-top16">Product/焼き菓子</h3><spam>(全<%= @products.count %>件)</span>
+		<% elsif @category == "3" %>
+		  <h3 class="m-top16">Product/プリン</h3><span>(全<%= @products.count %>件)</span>
+		<% elsif @category == "4" %>
+		  <h3 class="m-top16">Product/キャンディ</h3><span>(全<%= @products.count %>件)</span>
+		<% elsif @category == "5" %>
+		  <h3 class="m-top16">Product/検索結果</h3><span>(全<%= @products.count %>件)</span>
+		<% else %>
+		  <h3 class="m-top16">Product</h3><span>(全<%= @products.count %>件)</span>
+		<% end %>
+		<div class="row b-line"></div>
+		<div class="row" style="height: 50px;"></div>
+		<div class="products-box">
+			<% @products.each do |product| %>
+			  <div class="product-box">
+			  	<div class="image-box">
+			  	  <%= link_to product_path(product) do %>
+			  	    <div class="hover-box"></div>
+			  	  <% end %>
+			  	  <% if product.product_status!= "販売中" %>
+			  	    <div class="rounded-circle soldout">
+			  	  	  <span>Sold Out</span>
+			  	    </div>
+			  	  <% end %>
+			  	  <%= attachment_image_tag product, :product_image, :fill, 150, 150, class: "img-rounded",fallback: "no_image_lg.jpg" %>
+			    </div>
+			  	<p>"<%= product.product_name %>"<br>
+			  		￥<%= product.product_price %></p>
+			  	<div class="row" style="height: 50px;"></div>
+			  </div>
+			<% end %>
+		</div>
+		<div class="row">
+		  <div class="col-5"></div>
+		  <div class="col-7">
+		    <%= paginate @products %>
+		  </div>
+		</div>
+	</div>
+</div>
+
+

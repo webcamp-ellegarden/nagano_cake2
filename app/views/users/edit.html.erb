@@ -1,0 +1,83 @@
+
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>登録情報編集</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Edit</p>
+          </div>
+      </div>
+    </div>
+
+
+<%= form_for(@user) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <!-- name -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :氏名 %><br />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <%= f.text_field :family_name, autofocus: true, autocomplete: "family_name",class: "input form-control" %>
+    </div>
+      <div class="col-4">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",class: "input form-control" %>
+      </div>
+  </div>
+</div>
+
+<!-- kana_name -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :氏名（フリガナ） %><br />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <%= f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",class: "input form-control" %>
+    </div>
+    <div class="col-4">
+      <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+
+<!-- email -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-5">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+
+<%= render :partial => 'layouts/addressform', :locals => {:f =>f} %>
+
+<!-- tel -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-4">
+      <%= f.label :電話番号（ハイフンなし） %><br />
+      <%= f.text_field :tel, autofocus: true, autocomplete: "tel",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-3">
+        <%= f.submit "編集内容を保存する",class: "btn btn-outline-dark" %>
+      </div>
+    </div>
+  </div>
+  <%= link_to "退会する",  user_unregister_path %>
+<% end %>

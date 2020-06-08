@@ -1,0 +1,46 @@
+
+<!-- 郵便番号 -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :郵便番号（ハイフンなし） %><br />
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+<!-- -----------prefecture_code----------- -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :都道府県 %><br />
+      <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name ,include_blank: '都道府県' %>
+    </div>
+  </div>
+</div>
+<!-- address_city -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :市区町村 %><br />
+      <%= f.text_field :address_city, autofocus: true, autocomplete: "address_city",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+<!-- adress_street -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-3">
+      <%= f.label :番地 %><br />
+      <%= f.text_field :address_street, autofocus: true, autocomplete: "address_street",class: "input form-control" %>
+    </div>
+  </div>
+</div>
+<!-- address_building -->
+<div class="form-group">
+  <div class="row">
+    <div class="col-5">
+      <%= f.label :建物 %><br />
+      <%= f.text_field :address_building, autofocus: true, autocomplete: "address_building",class: "input form-control" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="col-sm-2 admin-head" style="background-color:#FFC;">ジャンル一覧</div>
+
+<div class="row">
+    <div class="col-md-7"　>
+		<table class="table"style="margin-top:30px;">
+			<%= form_for @category,:url => {:action => :create} do |f| %>
+				<tr>
+					<td><p>ジャンル</p></td>
+					<td><%= f.text_field :name %></td>
+					<td><%= f.radio_button :category_status, "有効" %>有効</td>
+					<td><%= f.radio_button :category_status, "無効" %>無効</td>
+
+					<td><%= f.submit "追加" , class: "btn btn-defolt"%></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+    <div class="col-md-7"　>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>ジャンル</th>
+				<th>状態</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @categories.each do |category| %>
+			<tr>
+				<td>
+					<%= category.name %>
+				</td>
+				<td><%= category.category_status %></td>
+				<td><%= link_to "編集", edit_admins_category_path(id:category) %></td>
+		    </tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+
+</div>
+
+
+
+

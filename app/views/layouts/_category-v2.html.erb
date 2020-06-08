@@ -1,0 +1,21 @@
+<a class="btn btn-default btn-outline-info" data-toggle="collapse" href="#collapseExample">
+	<i class="fas fa-search"></i>商品検索
+</a>
+<div class="collapse" id="collapseExample">
+  <table class="table table-hover well">
+	<tbody>
+	  <tr>
+		<td><%= link_to "ケーキ", products_path(category: "1") %></td>
+	  </tr>
+	  <tr>
+		<td><%= link_to "焼き菓子", products_path(category: "2") %></td>
+	  </tr>
+	  <tr>
+	    <td><%= link_to "プリン", products_path(category: "3") %></td>
+      </tr>
+	  <tr>
+	    <td><%= link_to "キャンディ", products_path(category: "4") %></td>
+      </tr>
+	</tbody>
+  </table>
+</div>

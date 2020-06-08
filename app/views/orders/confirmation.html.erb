@@ -1,0 +1,115 @@
+<h2>注文情報確認</h2>
+<div class="row">
+  <div class="col-9">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>単価</th>
+				<th>数量</th>
+				<th>小計</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @carts.each do |cart| %>
+		  <tr>
+		  	<td>
+		  		<%= attachment_image_tag cart.product, :product_image, :fill, 50, 50, class: "img-rounded", fallback: "no_image_lg.jpg" %>
+		  		<%= cart.product.product_name %>
+		  	</td>
+		  	<td><%= cart.tax_included.to_i %></td>
+		  	<td>
+		  		<%= cart.number %>
+		  	</td>
+		  	<td><%= cart.subtotal.to_i %></td>
+		  </tr>
+		<% end %>
+		</tbody>
+	</table>
+  </div>
+  <div class="col-3">
+  	<table class="table table-bordered">
+		<tbody>
+		  <tr>
+		  	<td>送料</td>
+		  	<td>800</td>
+		  </tr>
+		  <tr>
+		  	<td>商品合計</td>
+		  	<td><%= @carts.map(&:subtotal).sum.to_i%></td>
+		  </tr>
+		  <tr>
+		  	<td>請求金額</td>
+		  	<td><%= @carts.map(&:subtotal).sum.to_i + 800 %></td>
+		  </tr>
+		</tbody>
+	</table>
+  </div>
+</div>
+<div class="row">
+	<p>支払い方法：　<%= @order.payment %></p>
+</div>
+<div class="row">
+	<p>お届け先：　<%= @order.delivery_address %></p>
+</div>
+
+<!-- ここにクレジット決済を組み込みたい、、、決済すると画面遷移 -->
+<!-- 決済後、自動でsubmitとか？ -->
+
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-9">
+  <% if @order.payment == "銀行振り込み"%>
+    <%= form_for @order, url: orders_path do |f| %>
+      <%= f.hidden_field :payment %>
+      <%= f.hidden_field :receiver %>
+      <%= f.hidden_field :postal_code %>
+      <%= f.hidden_field :delivery_address %>
+      <%= f.submit "購入を確定する" %>
+    <% end %>
+  <% elsif @order.payment == "クレジットカード" %>
+    <%= form_tag(orders_path, method: :post ) do %>
+       <%= fields_for @order do |f| %>
+         <%= f.hidden_field :payment %>
+         <%= f.hidden_field :receiver %>
+         <%= f.hidden_field :postal_code %>
+         <%= f.hidden_field :delivery_address %>
+       <% end %>
+     <script src="https://checkout.pay.jp/" class="payjp-button" data-key= "<%= ENV['PAYJP_TEST_PUBLICKEY'] %>"></script>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+<script>
+  $(document).on('turbolinks:load', function() {
+      var form = $("#charge-form");
+      Payjp.setPublicKey('ENV['PAYJP_TEST_PUBLICKEY']');
+
+      $("#charge-form").on("click", "#submit-button", function(e) {
+        e.preventDefault();
+        form.find("input[type=submit]").prop("disabled", true);
+        var card = {
+            number: parseInt($("#payment_card_no").val()),
+            cvc: parseInt($("#payment_card_security_code").val()),
+            exp_month: parseInt($("#payment_card_expire_mm").val()),
+            exp_year: parseInt($("#payment_card_expire_yy").val())
+        };
+        Payjp.createToken(card, function(s, response) {
+          if (response.error) {
+            alert("error")
+            form.find('button').prop('disabled', false);
+          }
+          else {
+            $(".number").removeAttr("name");
+            $(".cvc").removeAttr("name");
+            $(".exp_month").removeAttr("name");
+            $(".exp_year").removeAttr("name");
+
+            var token = response.id;
+            $("#charge-form").append($('<input type="hidden" name="payjp_token" class="payjp-token" />').val(token));
+            $("#charge-form").get(0).submit();
+          }
+        });
+      });
+    });
+</script>

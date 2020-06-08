@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+
+@import "bootstrap";
+@import "home";
+
+
+html {
+    height:100%;
+}
+body {
+    height: 100%;
+}
+.wrap {
+     position: relative;
+     height: auto !important; /*IE6対策*/
+     height: 100%; /*IE6対策*/
+     min-height: 100%;
+}
+
+.container{
+padding-bottom: 60px;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*----------------ここからkaminariのレイアウト-------------------*/
+@import "bootstrap";
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+
+/*------ここまで------------------------------------------------*/
+
+/*------ここからadminsの商品一覧のプラスボタン-----------------*/
+html, body {
+  height: 100%;
+}
+
+.wrap2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #DDDDDD;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: #000000;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+  text-decoration: none;
+
+}
+
+/*-------------ここまで------------*/
+
+
+body {
+  background-image: url("triangle-mosaic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+
+
+

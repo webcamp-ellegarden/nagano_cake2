@@ -1,0 +1,58 @@
+
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3><%= @user.family_name %><%= @user.first_name %>の会員詳細</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>User show</p>
+          </div>
+      </div>
+    </div>
+    <div class="container">
+	  <table class="table">
+		
+		<tr>
+			<td>顧客ID</td>
+			<% if @user.user_status == "有効" %>
+				<td>有効会員</td>
+			<% else %>
+				<td>無効会員</td>
+			<% end%>
+		</tr>
+		<tr>
+			<td>氏名</td>
+			<td><%= @user.family_name %>  <%= @user.first_name %></td>
+		</tr>
+		<tr>
+			<td>フリガナ</td>
+			<td><%= @user.family_name_kana %>  <%= @user.first_name_kana %></td>
+		</tr>
+		<tr>
+			<td>郵便番号</td>
+			<td><%= @user.postal_code %></td>
+		</tr>
+		<tr>
+			<td>住所</td>
+			<td> <%= @user.user_address %></td>
+		</tr>
+		<tr>
+			<td>電話番号</td>
+			<td><%= @user.tel %></td>
+		</tr>
+		<tr>
+			<td>メールアドレス</td>
+			<td><%= @user.email %></td>
+		</tr>
+		<tr>
+
+		</table>
+
+		<%= link_to "編集する",edit_admins_user_path(@user),class: "btn btn-primary" %>
+			<%= link_to "注文履歴一覧を見る",admins_orders_path%>
+	    
+
+</div>
+
+
+

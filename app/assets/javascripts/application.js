@@ -10,7 +10,83 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+//= require popper
+//= require bootstrap-sprockets
+
+
+$(document).ready(function () {
+  $("#theTarget").skippr({
+      // スライドショーの変化 ("fade" or "slide")
+      transition : 'slide',
+      // 変化に係る時間(ミリ秒)
+      speed : 1000,
+      // easingの種類
+      easing : 'easeOutQuart',
+      // ナビゲーションの形("block" or "bubble")
+      navType : 'block',
+      // 子要素の種類("div" or "img")
+      childrenElementType : 'div',
+      // ナビゲーション矢印の表示(trueで表示)
+      arrows : true,
+      // スライドショーの自動再生(falseで自動再生なし)
+      autoPlay : true,
+      // 自動再生時のスライド切替間隔(ミリ秒)
+      autoPlayDuration : 3000,
+      // キーボードの矢印キーによるスライド送りの設定(trueで有効)
+      keyboardOnAlways : true,
+      // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
+      hidePrevious : false
+  });
+});
+
+
+
+
+//---------------画像アップロードプレビュー機能--------------
+$(document).ready(function () {
+  var view_box = $('.view_box');
+
+  $(".file").on('change', function(){
+     var fileprop = $(this).prop('files')[0],
+         find_img = $(this).next('img'),
+         fileRdr = new FileReader();
+
+     if(find_img.length){
+        find_img.nextAll().remove();
+        find_img.remove();
+     }
+
+    var img = '<img width="150" alt="" class="img_view"><a href="#" class="img_del">画像を削除する</a>';
+
+    view_box.append(img);
+
+    fileRdr.onload = function() {    
+      view_box.find('img').attr('src', fileRdr.result);
+      img_del(view_box); 
+    }
+    fileRdr.readAsDataURL(fileprop);  
+  });
+
+  function img_del(target)
+  {
+     target.find("a.img_del").on('click',function(){
+
+      if(window.confirm('サーバーから画像を削除します。\nよろしいですか？'))
+      {
+         $(this).parent().find('input[type=file]').val('');
+         $(this).parent().find('.img_view, br').remove();
+         $(this).remove();
+      }
+
+      return false;
+    });
+  }  
+});
+
+//-----------ここまで-------------------------------------------
+
+
