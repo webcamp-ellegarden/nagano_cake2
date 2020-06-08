@@ -15,6 +15,32 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
+@import "bootstrap";
+
+
+html {
+    height:100%;
+}
+body {
+    height: 100%;
+}
+.wrap {
+     position: relative;
+     height: auto !important; /*IE6対策*/
+     height: 100%; /*IE6対策*/
+     min-height: 100%;
+}
+
+.container{
+padding-bottom: 60px;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+
+
 /*----------------ここからkaminariのレイアウト-------------------*/
 @import "bootstrap";
 
@@ -71,4 +97,5 @@ html, body {
   color: #fff;
   transform: translateY(-7px);
   text-decoration: none;
+
 }
