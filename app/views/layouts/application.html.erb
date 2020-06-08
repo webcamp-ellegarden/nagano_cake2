@@ -10,16 +10,20 @@
 <script src="./js/jquery-1.11.3.min.js" type="text/javascript"></script>
 <!--  -->
 
+
   <script src="https://kit.fontawesome.com/f2ca94efa4.js" crossorigin="anonymous"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag    'header', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
-  <%= render 'layouts/header2' %>
-  <div class="container">
-    <%= yield %>
-  </div>
-</body>
+  <body>
+    <div class="wrap">
+      <%= render 'layouts/header2' %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <%= render 'layouts/footer' %>
+    </div>
+  </body>
 </html>

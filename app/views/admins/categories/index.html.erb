@@ -10,12 +10,12 @@
 					<td><%= f.radio_button :category_status, "有効" %>有効</td>
 					<td><%= f.radio_button :category_status, "無効" %>無効</td>
 
-					<td><%= f.submit "追加" %></td>
+					<td><%= f.submit "追加" , class: "btn btn-defolt"%></td>
 				</tr>
 			<% end %>
 		</table>
 	</div>
-    
+
     <div class="col-md-7"　>
 	<table class="table">
 		<thead>
@@ -30,10 +30,10 @@
 			<% @categories.each do |category| %>
 			<tr>
 				<td>
-					<%= category.name %>	
+					<%= category.name %>
 				</td>
 				<td><%= category.category_status %></td>
-				<td><%= link_to "編集", edit_admins_category_path(category) %></td>
+				<td><%= link_to "編集", edit_admins_category_path(id:category) %></td>
 		    </tr>
 			<% end %>
 		</tbody>

@@ -29,16 +29,3 @@
   </div>
 </body>
 
-<%= attachment_image_tag @product, :product_image, format: 'jpeg' , size: "300x300"%>
-
-<p>商品名:<%= @product.product_name %></p>
-<p>商品説明:<%= @product.product_comment %></p>
-<p>ジャンル:<%= @product.category.name %></p>
-<p>税込価格(税抜価格):<%= @product.product_price %></p>
-<p>販売ステータス:<%= @product.product_status %></p>
-
-
-
-
-
-<%= link_to "編集する", edit_admins_product_path(@product),class: "btn btn-primary" %>

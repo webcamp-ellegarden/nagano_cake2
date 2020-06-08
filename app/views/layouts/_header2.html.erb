@@ -22,6 +22,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <%= form_tag(products_path,:method => 'get') do %>
+            <%= hidden_field_tag :category, "5" %>
             <%= text_field_tag :search %>
             <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
         <% end %>
@@ -52,12 +53,22 @@
   <% elsif admin_signed_in? %>
      <div class="dropdown search">
       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"></i><span style="color: red;">(未実装)</span>
+        <i class="fas fa-search"></i><span style="color: red;"></span>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= form_tag(products_path,:method => 'get') do %>
+        <% if current_page?(admins_users_path) %>
+           <%= form_tag(admins_users_path,:method => 'get') do %>
             <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
+            <%= hidden_field_tag :option, "search" %>
+            <%= select_tag(:table, options_for_select([["名字","1"],["名前","2"]]), :class => "btn btn-outline-dark") %>
+            <%= submit_tag '会員検索', :name => nil, :class => "btn btn-outline-dark"%>
+          <% end %>
+        <% else %>
+          <%= form_tag(admins_products_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= hidden_field_tag :option, "search" %>
+            <%= submit_tag '商品検索', :name => nil, :class => "btn btn-outline-dark"%>
+          <% end %>
         <% end %>
       </div>
     </div>
