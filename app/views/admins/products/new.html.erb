@@ -13,7 +13,7 @@
 
   <%= form_for @product,:url => {:action => :create} do |f| %>
 
-    <div class="row"> 
+    <div class="row">
       <div class="col-5">
         <div class="form-group">
           <p><%= attachment_image_tag @product, :product_image, :fill, 200, 150, format: 'jpeg' %></p>
