@@ -8,7 +8,7 @@ class User < ApplicationRecord
 has_many :orders, dependent: :destroy
 has_many :delivery_addresses, dependent: :destroy
   #カート部分--------------------------------
-  has_many :carts
+  has_many :carts, dependent: :destroy
   has_many :products, through: :carts
   #----------------------------------------
 

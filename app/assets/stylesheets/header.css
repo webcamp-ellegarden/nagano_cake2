@@ -39,7 +39,8 @@
 /* 	justify-content: space-between;*/
  }
  .product-box {
- 	margin: 0 50px;
+ 	width: 250px;
+ 	padding: 0 50px;
  }
  .product-image {
  	width: 200px;
