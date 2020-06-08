@@ -12,6 +12,17 @@ has_many :delivery_addresses, dependent: :destroy
   has_many :products, through: :carts
   #----------------------------------------
 
+# validation
+  validates :family_name, presence:true
+  validates :first_name, presence:true
+  validates :family_name_kana, presence:true
+  validates :first_name_kana, presence:true
+  validates :tel, presence:true
+  validates :postal_code, presence:true
+  validates :prefecture_code, presence:true
+  validates :address_city, presence:true
+  validates :address_street, presence:true
+  validates :user_status, presence:true
 #user_status
 enum user_status:{ 有効: 0 , 退会済: 1 }
 attribute :user_status, :integer, default: 0
