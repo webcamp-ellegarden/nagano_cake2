@@ -1,6 +1,6 @@
 ## ![logo](https://user-images.githubusercontent.com/63890284/83961915-ea8e1500-a8d2-11ea-8c58-ceac9a171885.jpg)ながのCAKE(DMMWEBCAMPチーム開発課題)
 
-<img width="649" alt="スクリーンショット 2020-05-19 16 16 50" src="https://user-images.githubusercontent.com/63890284/84110865-a29cf880-aa60-11ea-8f61-963f61870ed6.png">
+![FireShot Capture 002 - NaganoCake - localhost](https://user-images.githubusercontent.com/63890284/84114367-3376d280-aa67-11ea-9f2b-9c70657420f7.png)
 
 
 長野県にある小さなな洋菓子店「ながのCAKE」の商品を通販するためのECサイト  
