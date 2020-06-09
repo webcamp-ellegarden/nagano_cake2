@@ -159,4 +159,90 @@
 	line-height: 70px;
 }
 
+/*about*/
+
+.about {
+	position: absolute;
+	left:100px;
+}
+
+/* ---------------------------- */
+/* --- ハンバーガーアイコン --- */
+/* ---------------------------- */
+ 
+ 
+#hm-icon{
+  position: fixed;
+  left: 400px;
+  top: 20px;
+  z-index: 10;
+}
+ 
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+ 
+.menu-trigger {
+  position: relative;
+  width: 100px;
+  height: 38px;
+}
+ 
+
+ 
+
+ 
+ 
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+ 
+ 
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+  text-align: center;
+  background-image: url("about.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ 
+#sp-menu li{
+  text-align: center;
+  margin-bottom: 30px;
+
+}
+ 
+#sp-menu a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  margin:0 auto;
+}
+
+#sp-main{
+ margin-top:100px;
+ height:500px;
+ background-color: white;
+ opacity: 0.5;
+ color: #000;
+}
+
+#sp-head {
+  padding-top:50px;
+}
+
+#sp-text{
+  padding-top: 50px;
+}
 
