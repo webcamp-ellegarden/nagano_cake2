@@ -31,3 +31,6 @@ email: "hoge@hoge",password: "password"
 *ユーザーアカウント
 email: "foo#{n+1}@hoge,passwprd: "password"
 
+**使用したフォント**  
+Noto Sans Jamaneze  
+

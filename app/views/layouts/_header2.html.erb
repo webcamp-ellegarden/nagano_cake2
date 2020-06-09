@@ -1,4 +1,9 @@
 <header class="header-box">
+
+  <%= link_to root_path do %>
+  <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
+  <% end %>
+
     <%= link_to root_path do %>
       <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
     <% end %>
@@ -47,138 +52,140 @@
             <% end %>
           <% end %>
         </div>
+
       </div>
+    </div>
     <div class="col-3">
     </div>
   </div>
-<!-- ------------------------------------------user ------------------------------------------------->
+  <!-- ------------------------------------------user ------------------------------------------------->
   <% if user_signed_in? %>
 
-    <div class="dropdown search">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"></i>商品検索
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= form_tag(products_path,:method => 'get') do %>
-            <%= hidden_field_tag :category, "5" %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
-        <% end %>
-        <%= link_to "全商品", products_path(category: "0"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-          <%= link_to "ケーキ", products_path(category: "1"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-          <%= link_to "クッキー", products_path(category: "2"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-          <%= link_to "プリン", products_path(category: "3"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-          <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
-        </div>
+  <div class="dropdown search">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-search"></i>商品検索
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= form_tag(products_path,:method => 'get') do %>
+      <%= hidden_field_tag :category, "5" %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
+      <% end %>
+      <%= link_to "全商品", products_path(category: "0"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "ケーキ", products_path(category: "1"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "クッキー", products_path(category: "2"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "プリン", products_path(category: "3"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
     </div>
-    <%= link_to products_path do %>
-      <button type="button" class="btn btn-outline-dark products">商品一覧</button>
-    <% end %>
-    <%= link_to carts_path do %>
-      <button type="button" class="btn btn-dark cart"><i class="fas fa-shopping-cart"></i></button>
-    <% end %>
-    <%= link_to user_path(current_user) do %>
-      <button type="button" class="btn btn-dark mypage">My Page</button>
-    <% end %>
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <button type="button" class="btn btn-dark login-out">Log Out</button>
-    <% end %>
-<!-- ----------------------------------admin------------------------------------ -->
+  </div>
+  <%= link_to products_path do %>
+  <button type="button" class="btn btn-outline-dark products">商品一覧</button>
+  <% end %>
+  <%= link_to carts_path do %>
+  <button type="button" class="btn btn-dark cart"><i class="fas fa-shopping-cart"></i></button>
+  <% end %>
+  <%= link_to user_path(current_user) do %>
+  <button type="button" class="btn btn-dark mypage">My Page</button>
+  <% end %>
+  <%= link_to destroy_user_session_path, method: :delete do %>
+  <button type="button" class="btn btn-dark login-out">Log Out</button>
+  <% end %>
+  <!-- ----------------------------------admin------------------------------------ -->
   <% elsif admin_signed_in? %>
-     <div class="dropdown search">
-      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-search"></i><span style="color: red;"></span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% if current_page?(admins_users_path) %>
-           <%= form_tag(admins_users_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= hidden_field_tag :option, "search" %>
-            <%= select_tag(:table, options_for_select([["名字","1"],["名前","2"]]), :class => "btn btn-outline-dark") %>
-            <%= submit_tag '会員検索', :name => nil, :class => "btn btn-outline-dark"%>
-          <% end %>
-        <% else %>
-          <%= form_tag(admins_products_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= hidden_field_tag :option, "search" %>
-            <%= submit_tag '商品検索', :name => nil, :class => "btn btn-outline-dark"%>
-          <% end %>
-        <% end %>
-      </div>
+  <div class="dropdown search">
+    <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-search"></i><span style="color: red;"></span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <% if current_page?(admins_users_path) %>
+      <%= form_tag(admins_users_path,:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= hidden_field_tag :option, "search" %>
+      <%= select_tag(:table, options_for_select([["名字","1"],["名前","2"]]), :class => "btn btn-outline-dark") %>
+      <%= submit_tag '会員検索', :name => nil, :class => "btn btn-outline-dark"%>
+      <% end %>
+      <% else %>
+      <%= form_tag(admins_products_path,:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= hidden_field_tag :option, "search" %>
+      <%= submit_tag '商品検索', :name => nil, :class => "btn btn-outline-dark"%>
+      <% end %>
+      <% end %>
     </div>
-    <%= link_to destroy_admin_session_path, method: :delete do %>
-      <button type="button" class="btn btn-success cart">Log Out</button>
-    <% end %>
-    <%= link_to admins_users_path do %>
-      <button type="button" class="btn btn-success member">会員一覧</button>
-    <% end %>
-    <%= link_to admins_categories_path do %>
-      <button type="button" class="btn btn-success category">ジャンル一覧</button>
-    <% end %>
-    <%= link_to admins_products_path do %>
-      <button type="button" class="btn btn-success products">商品一覧</button>
-    <% end %>
-    <%= link_to admins_orders_path do %>
-      <button type="button" class="btn btn-success mypage">注文履歴一覧</button>
-    <% end %>
-<!-- -----------------------------------ログインなし-------------------------------------- -->
+  </div>
+  <%= link_to destroy_admin_session_path, method: :delete do %>
+  <button type="button" class="btn btn-success cart">Log Out</button>
+  <% end %>
+  <%= link_to admins_users_path do %>
+  <button type="button" class="btn btn-success member">会員一覧</button>
+  <% end %>
+  <%= link_to admins_categories_path do %>
+  <button type="button" class="btn btn-success category">ジャンル一覧</button>
+  <% end %>
+  <%= link_to admins_products_path do %>
+  <button type="button" class="btn btn-success products">商品一覧</button>
+  <% end %>
+  <%= link_to admins_orders_path do %>
+  <button type="button" class="btn btn-success mypage">注文履歴一覧</button>
+  <% end %>
+  <!-- -----------------------------------ログインなし-------------------------------------- -->
   <% else %>
 
-    <div class="dropdown search">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-search"></i>商品検索
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= form_tag(products_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
-          <% end %>
-        <%= link_to "全商品", products_path(category: "0"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "ケーキ", products_path(category: "1"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "クッキー", products_path(category: "2"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "プリン", products_path(category: "3"), :class => "dropdown-item" %>
-        <div class="dropdown-divider"></div>
-        <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
-      </div>
-    </div>
-    <div class="dropdown login-out">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Log In
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= link_to " ログイン", new_user_session_path %>
-        <div class="dropdown-divider"></div>
-        <%= link_to " 新規登録", new_user_registration_path %>
-      </div>
-    </div>
-    <button type="button" class="btn btn-dark cart" data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-shopping-cart"></i>
+  <div class="dropdown search">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-search"></i>商品検索
     </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">nagano cake</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
-          <div class="modal-body">
-            買い物には会員登録が必要です。
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= form_tag(products_path,:method => 'get') do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
+      <% end %>
+      <%= link_to "全商品", products_path(category: "0"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "ケーキ", products_path(category: "1"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "クッキー", products_path(category: "2"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "プリン", products_path(category: "3"), :class => "dropdown-item" %>
+      <div class="dropdown-divider"></div>
+      <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
+    </div>
+  </div>
+  <div class="dropdown login-out">
+    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Log In
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= link_to " ログイン", new_user_session_path %>
+      <div class="dropdown-divider"></div>
+      <%= link_to " 新規登録", new_user_registration_path %>
+    </div>
+  </div>
+  <button type="button" class="btn btn-dark cart" data-toggle="modal" data-target="#exampleModal">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">nagano cake</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          買い物には会員登録が必要です。
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
   <% end %>
 
 </header>
