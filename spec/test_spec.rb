@@ -24,15 +24,14 @@ RSpec.describe "Admins", type: :request do
 
 
   describe 'asminログイン' do
-    let(:admin) { create(:admin) }
+    let(:admin) { FactoryBot.create(:admin) }
       before do
         get new_admin_session_path
       end
       context 'ログイン画面に遷移' do
         let(:test_admin) { admin }
           it 'ログインに成功する' do
-            fill_in 'admin[email]', with: test_admin.email
-            fill_in 'admin[password]', with: test_admin.password
+            post 'admins/sign_in', email: admin.email, password: admin.password
             click_button 'ログイン'
             expect(page).to have_content '本日の注文件数'
          end

@@ -16,6 +16,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
 @import "bootstrap";
+@import "home";
 
 
 html {
@@ -39,7 +40,7 @@ padding-bottom: 60px;
 *{
     margin: 0;
     padding: 0;
-
+}
 
 /*----------------ここからkaminariのレイアウト-------------------*/
 @import "bootstrap";
@@ -104,6 +105,12 @@ html, body {
 /*-------------ここまで------------*/
 
 
+body {
+  background-image: url("triangle-mosaic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 
 
 

@@ -2,7 +2,13 @@ class Admins::ProductsController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-  	@products = Product.page(params[:page]).per(8)
+    @option = params[:option]
+    if @option == "search"
+      search = params[:search]
+      @products = Product.where('product_name LIKE ?', "%#{search}%").page(params[:page]).per(8).reverse_order
+  	else
+      @products = Product.page(params[:page]).per(8)
+    end
   end
 
   def show
