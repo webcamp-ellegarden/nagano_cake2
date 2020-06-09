@@ -24,7 +24,7 @@ has_many :delivery_addresses, dependent: :destroy
   validates :address_street, presence:true
   validates :user_status, presence:true
 #user_status
-enum user_status:{ 有効: 0 , 退会済: 1 }
+enum user_status:{ 有効: 0 , 退会済み: 1 }
 attribute :user_status, :integer, default: 0
 
 def active_for_authentication?

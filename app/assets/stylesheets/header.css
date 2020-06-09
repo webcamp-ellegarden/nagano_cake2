@@ -161,10 +161,7 @@
 
 /*about*/
 
-.about {
-	position: absolute;
-	left:100px;
-}
+
 
 /* ---------------------------- */
 /* --- ハンバーガーアイコン --- */
@@ -172,8 +169,8 @@
  
  
 #hm-icon{
-  position: fixed;
-  left: 400px;
+  position: absolute;
+  left: 450px;
   top: 20px;
   z-index: 10;
 }
@@ -187,7 +184,7 @@
  
 .menu-trigger {
   position: relative;
-  width: 100px;
+  width: 110px;
   height: 38px;
 }
  
@@ -212,7 +209,7 @@
   display: none;
   z-index: 9;
   text-align: center;
-  background-image: url("about.jpg");
+  background-image: url("about2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
