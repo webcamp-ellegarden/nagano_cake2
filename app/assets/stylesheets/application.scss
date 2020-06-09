@@ -23,7 +23,9 @@ html {
     height:100%;
 }
 body {
-    height: 100%;
+  background-image: url("triangle-mosaic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .wrap {
      position: relative;
@@ -101,16 +103,9 @@ html, body {
   text-decoration: none;
 
 }
-}
 /*-------------ここまで------------*/
 
 
-body {
-  background-image: url("triangle-mosaic.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
 
 
 
