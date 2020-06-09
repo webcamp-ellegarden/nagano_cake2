@@ -1,5 +1,6 @@
 class Admins::OrdersController < ApplicationController
 	before_action :authenticate_admin!
+  
   def index
   	@orders = Order.all
   end
@@ -8,7 +9,7 @@ class Admins::OrdersController < ApplicationController
   	@order = Order.find(params[:id])
   end
 
-# ここ---------------------------------------------------------
+
   def update
      @order = Order.find(params[:id]) #params[:id]から注文呼び出し(常にtrue)
      option = params[:option]
@@ -25,7 +26,7 @@ class Admins::OrdersController < ApplicationController
           end
         end
       end
-
+   
     else
       @order.update(order_params)
       if @order.order_status == "入金確認"
@@ -37,7 +38,7 @@ class Admins::OrdersController < ApplicationController
     end
       redirect_to admins_order_path(@order)
    end
-#-----------------------------------------------------------------
+
     private
      def order_params
        params.require(:order).permit(:order_status)

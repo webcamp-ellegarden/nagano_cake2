@@ -14,8 +14,8 @@
 <div class="container">
 
   <%= form_for @product,:url => {:action => :update} do |f| %>
-   
-    <div class="row"> 
+
+    <div class="row">
       <div class="col-5">
         <div class="form-group">
           <div class="view_box">
@@ -28,7 +28,7 @@
           <%= f.label "商品名" %>
           <%= f.text_field :product_name,class: "input form-control" %>
         </div>
-        
+
         <div class="form-group">
          <%= f.label :product_comment %>
          <%= f.text_area :product_comment,class: "input form-control" %>

@@ -1,23 +1,41 @@
-<div class="col-sm-2 admin-head" style="background-color:#FFC;">ジャンル一覧</div>
 
-<div class="row">
-    <div class="col-md-7"　>
-		<table class="table"style="margin-top:30px;">
-			<%= form_for @category,:url => {:action => :create} do |f| %>
-				<tr>
-					<td><p>ジャンル</p></td>
-					<td><%= f.text_field :name %></td>
-					<td><%= f.radio_button :category_status, "有効" %>有効</td>
-					<td><%= f.radio_button :category_status, "無効" %>無効</td>
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>ジャンル一覧</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Category</p>
+          </div>
+      </div>
+    </div>
 
-					<td><%= f.submit "追加" , class: "btn btn-defolt"%></td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
+    <%= form_for @category,:url => {:action => :create} do |f| %>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-2">
+            <p>ジャンル</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+	        <%= f.text_field :name,class: "input form-control" %>
+		  </div>
+		   <div class="col-2">
+		     <%= f.radio_button :category_status, "有効" %>有効
+		   </div>
+		   <div class="col-2">
+		     <%= f.radio_button :category_status, "無効" %>無効
+		   </div>
+		   <div class="col-3">
+		     <%= f.submit "追加" , class: "btn btn-outline-dark"%>
+		   </div>
+	    </div>
+	  </div>
+	<% end %>
 
-    <div class="col-md-7"　>
-	<table class="table">
+    <div class="col-7"　>
+	  <table class="table table-hover">
 		<thead>
 			<tr>
 				<th>ジャンル</th>
@@ -25,22 +43,21 @@
 				<th colspan="3"></th>
 			</tr>
 		</thead>
-
 		<tbody>
-			<% @categories.each do |category| %>
+		  <% @categories.each do |category| %>
 			<tr>
-				<td>
-					<%= category.name %>
-				</td>
+			  <td>
+			    <%= category.name %>
+			  </td>
 				<td><%= category.category_status %></td>
-				<td><%= link_to "編集", edit_admins_category_path(id:category) %></td>
+				<td><%= link_to "編集", edit_admins_category_path(id:category),class: "btn btn-outline-dark" %></td>
 		    </tr>
-			<% end %>
+		  <% end %>
 		</tbody>
-	</table>
+	  </table>
 	</div>
-
-</div>
+  </div>
+</body>
 
 
 
