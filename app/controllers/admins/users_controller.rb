@@ -1,7 +1,19 @@
 class Admins::UsersController < ApplicationController
   before_action :authenticate_admin!
   def index
-  	@users =User.all
+    @option = params[:option]
+    if @option == "search"
+      @method = params[:table]
+      search = params[:search]
+      if @method == "1"
+        @users = User.where('family_name LIKE ?', "%#{search}%").page(params[:page]).per(10)
+      else
+        @users = User.where('first_name LIKE ?', "%#{search}%").page(params[:page]).per(10)
+      end
+    else
+      @users = User.page(params[:page]).per(10)
+    end
+
   end
 
   def show

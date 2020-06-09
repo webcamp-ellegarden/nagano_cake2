@@ -4,6 +4,8 @@ class Cart < ApplicationRecord
 
   attribute :number, :integer, default: 1
 
+  validates :number, presence:true
+
   def tax_included
   	self.product.product_price.to_f * 1.08
   end

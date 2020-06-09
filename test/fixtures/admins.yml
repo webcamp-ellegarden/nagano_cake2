@@ -9,3 +9,6 @@ one: {}
 #
 two: {}
 # column: value
+michael:
+  email: michael@example.com
+  password: 111111

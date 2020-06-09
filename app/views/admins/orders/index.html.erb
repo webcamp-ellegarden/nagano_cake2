@@ -1,33 +1,35 @@
-<h1>注文履歴一覧</h1>
+<body style="background: #FFFF;color: #000; font-family:monospace" >
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>注文履歴</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Order history</p>
+          </div>
+      </div>
+    </div>
 
- 
-
-
-<table class="table">
-	<thead>
-		<tr>
-		  <th>購入日時</th>
-			<th>購入者</th>
-			<th>注文個数</th>
-			<th>注文ステータス</th>
-			
-        </tr>
-    </thead>
-  
-
-    <% @orders.each do |order| %>
-      <tbody>
-   
-        <tr>
-    	    <td><%= link_to order.created_at.to_s(:datetime_jp),admins_order_path(order) %></td>
-            
-    	    <td><%= order.user.family_name %><%= order.user.first_name %></td>
-          
-    	    <td><%= order.order_details.map(&:number).sum %></td>
-          
-          <td><%= order.order_status %></td>
-        </tr>
- 
-      </tbody>
-  <% end %>
-</table>
+    <div class="container">
+      <table class="table table-hover">
+	      <thead>
+		      <tr>
+		        <th>購入日時</th>
+			      <th>購入者</th>
+			      <th>注文個数</th>
+			      <th>注文ステータス</th>
+          </tr>
+        </thead>
+          <% @orders.each do |order| %>
+            <tbody>
+              <tr>
+    	          <td><%= link_to order.created_at.to_s(:datetime_jp),admins_order_path(order),:style=>"color:#000;" %></td>
+    	          <td><%= order.user.family_name %><%= order.user.first_name %></td>
+    	          <td><%= order.order_details.map(&:number).sum %></td>
+                <td><%= order.order_status %></td>
+              </tr>
+            </tbody>
+          <% end %>
+      </table>
+    </div>
+  </div>
+</body>

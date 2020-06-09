@@ -36,6 +36,6 @@ class DeliveryAddressesController < ApplicationController
     
     private
      def delivery_address_params
-       params.require(:delivery_address).permit(:portal_code,:prefecture_code,:address_city,:address_street,:address_building,:receiver)
+       params.require(:delivery_address).permit(:postal_code,:prefecture_code,:address_city,:address_street,:address_building,:receiver)
      end
 end
