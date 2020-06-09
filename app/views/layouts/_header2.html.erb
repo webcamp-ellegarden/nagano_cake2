@@ -4,6 +4,7 @@
     <% end %>
 
 <!-- about 追加 -->
+   <% unless admin_signed_in? %>
     <div id="sp-menu">
       <div id="sp-main">
         <div id="sp-head">
@@ -23,9 +24,10 @@
     </div>
  
     <div id="hm-icon">
-      <a class="menu-trigger" href="#">
-        <button type="button" class="btn btn-outline-dark menu-trigger"><i class="fas fa-birthday-cake"></i>About us</button>
+  
+        <button type="button" class="btn btn-outline-dark menu-trigger"><i class="fas fa-birthday-cake"></i> About us</button>
     </div>
+    <% end %>
 
 
 

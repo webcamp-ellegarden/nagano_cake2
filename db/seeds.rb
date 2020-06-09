@@ -22,12 +22,12 @@ Admin.create!(email: "hoge@hoge",
   family_name_kana  = "ホソミ"
   first_name_kana = "タケシ#{n+1}"
   tel  = Faker::Code.sin
-  postal_code = "111111#{n+1}"
+  postal_code = "1000001"
   prefecture_code ="東京"
-  address_city = "練馬区早宮"
-  address_street = "1-1-1"
+  address_city = "千代田区"
+  address_street = "1-1"
   address_building = "かっこいいビル1F"
-  user_status = 0
+  user_status = "有効"
   email = "foo#{n+1}@hoge"
   password = "password"
 
@@ -54,12 +54,12 @@ end
   family_name_kana  = "ウブカタ"
   first_name_kana = "シンイチ#{n+1}"
   tel  = Faker::Code.sin
-  postal_code = "111111#{n+1}"
+  postal_code = "1310045"
   prefecture_code ="東京"
-  address_city = "練馬区平和台"
-  address_street = "1-1-1"
+  address_city = "墨田区押上"
+  address_street = "1-1-2"
   address_building = "かっこいいビル1F"
-  user_status = 0
+  user_status = "退会済み"
   email = "foo#{n+1}@bar"
   password = "password"
 
