@@ -1,18 +1,23 @@
 <!-- カートページ -->
 <% if current_user.carts.count != 0 %>
-<div class="row">
-	<div class="col-9">
-    <h2>ショッピングカート</h2>
+<div class="row"></div>
+  <div class="col-9">
+    <h2>ショッピングカート<i class="fas fa-shopping-cart"></i></h2>
   </div>
-  <div class="col-3">
+  <div class="col-3"></div>
+<div class="row">
+  <div class="col-10">
+  </div>
+  <div class="col-2">
   	<%= link_to carts_reset_path, method: :delete do %>
 		<button type="button" class="btn btn-danger">カートを空にする</button>
 	<% end %>
   </div>
 </div>
+<div class="row" style="height: 20px;"></div>
 <div class="row">
 	<table class="table table-bordered">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>商品名</th>
 				<th>単価</th>
@@ -44,17 +49,19 @@
 	</table>
 </div>
 <div class="row">
-  <div class="col-7"></div>
-  <div class="col-5">
+  <div class="col-9"></div>
+
+  <div class="col-3">
   <table class="table table-bordered">
     <tbody>
-	  <tr>
-		<td>合計金額</td>
+	  <tr class="border border-primary">
+		<td class="p-3 mb-2 bg-dark text-white">合計金額</td>
 		<td><%= @total_price %></td>
 	  </tr>
 	</tbody>
   </table>
   </div>
+
 </div>
 <div class="row">
 	<div class="col-4"></div>
@@ -63,7 +70,7 @@
           <button type="button" class="btn btn-primary btn-lg">情報入力へ進む</button>
         <% end %>
         <%= link_to products_path do %>
-          <button type="button" class="btn btn-outline-primary btn-lg">買い物を続ける</button>
+          <button type="button" class="btn btn-outline-dark btn-lg">買い物を続ける</button>
         <% end %>
 	</div>
 </div>
