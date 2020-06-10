@@ -33,7 +33,7 @@
 		  	<td><%= cart.tax_included.to_i %></td>
 		  	<td>
 		  		<%= form_for cart do |f| %>
-		  		  <%= f.number_field :number, min: 1, max: 100 %>
+		  		  <%= f.number_field :number, min: 1, max: 100, class: "cart_number" %>
 		  		  <%= f.submit "変更する" %>
 		  		<% end %>
 		  	</td>
@@ -66,10 +66,10 @@
 <div class="row">
 	<div class="col-4"></div>
 	<div class="col-8">
-	    <%= link_to new_order_path do %>
+	    <%= link_to new_order_path, id: "info-link" do %>
           <button type="button" class="btn btn-primary btn-lg">情報入力へ進む</button>
         <% end %>
-        <%= link_to products_path do %>
+        <%= link_to products_path, id: "shop-link" do %>
           <button type="button" class="btn btn-outline-dark btn-lg">買い物を続ける</button>
         <% end %>
 	</div>
