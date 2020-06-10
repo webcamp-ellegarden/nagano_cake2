@@ -1,8 +1,7 @@
-<div class="container">
+
 	<%= flash[:notice] %>
 	<div class="row">
-
-		<div class="skipper">
+		 <div class="skipper">
 			<div id="theTarget">
 				<div class="image1"></div>
 				<div class="image2"></div>
@@ -11,33 +10,33 @@
 				<div class="image5"></div>
 			</div>
 		</div>
-	</div><br>
+	</div>
+	<br>
 		<h3>PICK UP!</h3><hr>
 		<div class="pickup">
-		<div class="row">
-			<div class="col-3">
-				<%= image_tag 'tart1.jpg', size: "200x130" %>
-				<p>洋梨のチーズタルト</p>
-				<p>¥400</p>
-			</div>
-			<div class="col-3">
-				<%= image_tag 'topimage1.jpg', size: "200x130" %>
-				<p>卵たっぷり濃厚プリン</p>
-				<p>¥500</p>
-			</div>
-			<div class="col-3">
-				<%= image_tag 'topimage2.jpg', size: "200x130" %>
-				<p>いちごのショートケーキ</p>
-				<p>¥1,000</p>
-			</div>
-			<div class="col-3">
-				<%= image_tag 'topimage3.jpg', size: "200x130" %>
-				<p> マカロンセット（８個）</p>
-				<p>¥1,200</p>
-			</div>
+			<div class="row">
+				<div class="col-3">
+					<%= image_tag 'tart1.jpg', size: "200x130" %>
+					<p>洋梨のチーズタルト</p>
+					<p>¥400</p>
+				</div>
+				<div class="col-3">
+					<%= image_tag 'topimage1.jpg', size: "200x130" %>
+					<p>卵たっぷり濃厚プリン</p>
+					<p>¥500</p>
+				</div>
+				<div class="col-3">
+					<%= image_tag 'topimage2.jpg', size: "200x130" %>
+					<p>いちごのショートケーキ</p>
+					<p>¥1,000</p>
+				</div>
+				<div class="col-3">
+					<%= image_tag 'topimage3.jpg', size: "200x130" %>
+					<p> マカロンセット（８個）</p>
+					<p>¥1,200</p>
+				</div>
 			</div>
 		</div>
 		<p class="text-right">
 			<%= link_to 'MORE＞', products_path %>
 		</p>
-	</div>
