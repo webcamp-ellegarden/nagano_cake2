@@ -1,3 +1,32 @@
+/*ヘッダー*/
+
+.header-box{
+    top: 0px;                   /* 位置(上0px) */
+    left: 0px;                  /* 位置(右0px) */
+    width: 100%;                /* 横幅100%　*/
+    height: 80px;             /* 縦幅140px */
+    z-index: 4;
+}
+
+.header-TOP{
+    position: fixed;            /* ヘッダーの固定 */
+    top: 0px;                   /* 位置(上0px) */
+    left: 0px;                  /* 位置(右0px) */
+    width: 100%;                /* 横幅100%　*/
+    height: 80px;             /* 縦幅140px */
+    z-index: 4;
+}
+
+.bkRGBA{
+  /* 背景画像の透過用css */
+  height: 100%;
+}
+
+.search{
+	height: 100%;
+	width:15%;
+}
+
 
 .nav {
 	width: 100%;
@@ -66,10 +95,7 @@
 	color: white;
 }
 
-.header-box {
-	position: relative;
-	height: 100px;
-}
+
 .cart {
 	position: absolute;
 	right: 20px;
@@ -77,7 +103,7 @@
 }
 .mypage {
 	position: absolute;
-	right: 250px;
+	right: 200px;
 	top: 20px;
 }
 .login-out {
@@ -92,12 +118,12 @@
 }
 .home {
 	position: absolute;
-	left: 250px;
+	left: 300px;
 	top: 20px;
 }
 .products {
 	position: absolute;
-	left: 350px;
+	left: 400px;
 	top: 20px;
 }
 .registration {
@@ -130,7 +156,6 @@
 
 
 .logo{
-
 	position: absolute;
 	left: 650px;
 	top: 0px;
@@ -170,7 +195,7 @@
  
 #hm-icon{
   position: absolute;
-  left: 450px;
+  left: 150px;
   top: 20px;
   z-index: 10;
 }
