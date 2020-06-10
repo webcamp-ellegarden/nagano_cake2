@@ -100,3 +100,12 @@ $(function() {
  
  });
 
+$(function() {
+ 
+  $(window).scroll( function() {
+    $('.bkRGBA').css('background','rgba(255,255,255,0.5)');
+    return false;
+  });
+ 
+ });
+
