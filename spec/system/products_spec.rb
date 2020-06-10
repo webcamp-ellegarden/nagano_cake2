@@ -23,11 +23,12 @@ describe '商品のテスト' do
     end
     context '商品詳細画面のテスト' do
       it 'カート画面に遷移する。' do
-        fill_in 'cart_number', with: '2'
-        click_button 'button'
+        visit product_path(1)
+         find_field('cart[number]').set("2")
+         click_button 'カートに入れる'
 
         expect(page).to have_content 'ショッピングカート'
       end
     end
- end
+  end
 end
