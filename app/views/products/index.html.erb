@@ -31,7 +31,7 @@
 			  	  <%= attachment_image_tag product, :product_image, :fill, 150, 150, class: "img-rounded",fallback: "no_image_lg.jpg" %>
 			    </div>
 			  	<p>"<%= product.product_name %>"<br>
-			  		￥<%= product.product_price %></p>
+			  		￥<%= product.product_price.to_i.to_s(:delimited) %></p>
 			  	<div class="row" style="height: 50px;"></div>
 			  </div>
 			<% end %>

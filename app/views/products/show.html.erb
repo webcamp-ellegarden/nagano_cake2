@@ -18,7 +18,7 @@
   		<div class="product-detail col-7">
         <div class="row" style="height: 30px"></div>
   			<h4>"<%= @product.product_name %>"</h4>
-  			<h3>￥ <%= @product.tax_included.to_i %> (税込)</h3>
+  			<h3>￥ <%= @product.tax_included.to_i.to_s(:delimited) %> (税込)</h3>
         <div class="row" style="height: 30px"></div>
         <div>
         <%= form_for @cart, url:carts_path( product_id: @product.id ) do |f| %>

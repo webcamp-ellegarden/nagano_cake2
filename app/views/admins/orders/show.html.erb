@@ -47,6 +47,7 @@
               <%= f.select :order_status, Order.order_statuses.keys %>
                 <%= hidden_field_tag :option, "2"%>
                 <%= f.submit "更新", class: "btn btn-primary" %>
+                <%= @order.order_status %>
             <% end %>
 
           </div>
@@ -72,6 +73,7 @@
                   <td><%= order_detail.product_price %></td>
                   <td><%= order_detail.number %></td>
                   <td><%= order_detail.number * order_detail.product_price %></td>
+                  <td><%= order_detail.making_status %></td>
                   <td>
                   <%= form_for order_detail,:url => {:action => :update} do |f| %>
                     <%= f.select :making_status, OrderDetail.making_statuses.keys %>

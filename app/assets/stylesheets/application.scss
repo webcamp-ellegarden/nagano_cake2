@@ -15,6 +15,8 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 @import "bootstrap";
 @import "home";
 
@@ -23,6 +25,10 @@ html {
     height:100%;
 }
 body {
+
+  background-image: url("triangle-mosaic.png");
+  background-repeat: no-repeat;
+  background-size: cover;
     height: 100%;
 }
 .wrap {
@@ -34,7 +40,12 @@ body {
 
 .container{
 padding-bottom: 60px;
+font-family: 'Noto Sans JP', sans-serif;
 
+}
+
+header{
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 *{
@@ -101,16 +112,7 @@ html, body {
   text-decoration: none;
 
 }
-
 /*-------------ここまで------------*/
-
-
-body {
-  background-image: url("triangle-mosaic.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
 
 
 

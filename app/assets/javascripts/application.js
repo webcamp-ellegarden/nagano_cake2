@@ -89,4 +89,14 @@ $(document).ready(function () {
 
 //-----------ここまで-------------------------------------------
 
+// ----------about---------------------------------------------
+$(function() {
+ 
+  $('.menu-trigger').hover( function() {
+    $(this).toggleClass('active');
+    $('#sp-menu,.skipper').fadeToggle();
+    return false;
+  });
+ 
+ });
 

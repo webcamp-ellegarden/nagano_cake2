@@ -1,6 +1,6 @@
 class Admins::ProductsController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @option = params[:option]
     if @option == "search"
@@ -26,7 +26,7 @@ class Admins::ProductsController < ApplicationController
   	@product.save
   	redirect_to admins_products_path
   end
-  
+
   def edit
   	@product = Product.find(params[:id])
   end

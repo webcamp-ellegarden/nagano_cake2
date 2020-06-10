@@ -3,15 +3,19 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .skipper {
-height: 400px;
-width: 100%;
+height: 340px;
+width: 90%;
+margin: 10px auto;
+}
+.pickup{
+margin: 10px auto;
 }
 
 .image1 {
 background-image: url(image1.png);
 }
 .image2 {
-background-image: url(image2.png);
+background-image: url(image2.jpg);
 }
 .image3 {
 background-image: url(image3.png);
