@@ -160,3 +160,12 @@
 }
 
 
+.truck {
+	font-size: 200px;
+	color: red;
+}
+
+.completation {
+	width: 100%;
+	text-align: center;
+}
