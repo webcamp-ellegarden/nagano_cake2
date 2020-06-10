@@ -13,11 +13,11 @@ RSpec.describe "Admins", type: :request do
   end
   describe '詳細画面のテスト' do
     before do
-      visit admins_products_path
+      get root_path
     end
     context '表示の確認' do
       it '商品新規登録が表示される' do
-        expect(page).to have_content(product_price)
+        expect(page).to have_content(PICK UP)
       end
     end
   end
@@ -27,6 +27,7 @@ RSpec.describe "Admins", type: :request do
     let(:admin) { FactoryBot.create(:admin) }
       before do
         get new_admin_session_path
+        click_button 'Log in'
       end
       context 'ログイン画面に遷移' do
         let(:test_admin) { admin }

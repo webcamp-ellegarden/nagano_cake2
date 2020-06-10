@@ -1,7 +1,4 @@
 <header class="header-box">
-    <%= link_to root_path do %>
-      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
-    <% end %>
     <div class="row">
       <div class="col-3">
       </div>
@@ -21,6 +18,9 @@
     <div class="col-3">
     </div>
   </div>
+  <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
+  <% end %>
 <!-- ------------------------------------------user ------------------------------------------------->
   <% if user_signed_in? %>
 
