@@ -1,0 +1,37 @@
+<div class="header3">
+	<div class="header3-box">
+		<div class="dropdown search">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-search"></i>商品検索
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= form_tag(products_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
+          <% end %>
+        <%= link_to "全商品", products_path(category: "0"), :class => "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "ケーキ", products_path(category: "1"), :class => "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "クッキー", products_path(category: "2"), :class => "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "プリン", products_path(category: "3"), :class => "dropdown-item" %>
+        <div class="dropdown-divider"></div>
+        <%= link_to "キャンディ", products_path(category: "4"), :class => "dropdown-item" %>
+      </div>
+    </div>
+    <div class="dropdown login-out">
+      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Log In
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to " ログイン", new_user_session_path %>
+        <div class="dropdown-divider"></div>
+        <%= link_to " 新規登録", new_user_registration_path %>
+      </div>
+    </div>
+    <button type="button" class="btn btn-dark cart" data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-shopping-cart"></i>
+    </button>
+	</div>
+</div>

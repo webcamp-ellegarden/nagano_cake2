@@ -23,7 +23,7 @@
         <div>
         <%= form_for @cart, url:carts_path( product_id: @product.id ) do |f| %>
           <span>数量：</span>
-          <%= f.number_field :number, min: 1, max: 100 %><br>
+          <%= f.number_field :number, min: 1, max: 100, class: "cart_number"%><br>
           <div class="row" style="height: 10px"></div>
           <div class="row">
             <div class="col-9">
