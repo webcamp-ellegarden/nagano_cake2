@@ -1,11 +1,9 @@
 <header class="header-TOP">
+
   <div class="bkRGBA">
-    <%= link_to root_path do %>
-      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
-    <% end %>
+
 
   <!-- about 追加 -->
-       <!-- about 追加 -->
        <% unless admin_signed_in? %>
         <div id="sp-menu">
           <div id="sp-main">
@@ -30,6 +28,8 @@
       <% end %>
 
 
+
+
 <!-- ロゴ部分 -->
         <div class="logo">
           <% if admin_signed_in? %>
@@ -42,11 +42,14 @@
             <% end %>
           <% end %>
         </div>
- 
+
 
 <!-- ------------------------------------------user ------------------------------------------------->
     <div class="serch-box">
     <% if user_signed_in? %>
+    <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
+    <% end %>
 
       <div class="dropdown search">
         <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,16 +79,19 @@
         <button type="button" class="btn btn-dark cart"><i class="fas fa-shopping-cart"></i></button>
       <% end %>
       <%= link_to user_path(current_user) do %>
-        <button type="button" class="btn btn-dark mypage">My Page</button>
+        <button type="button" class="btn btn-dark mypage"><%=current_user.user_fullname%>さん</button>
       <% end %>
       <%= link_to destroy_user_session_path, method: :delete do %>
         <button type="button" class="btn btn-dark login-out">Log Out</button>
       <% end %>
    </div>
 <!-- ----------------------------------admin------------------------------------ -->
-  <div class="serch-box">
+
   <% elsif admin_signed_in? %>
-     <div class="dropdown search">
+    <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
+    <% end %>
+    <div class="dropdown search">
       <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-search"></i><span style="color: red;"></span>
       </button>
@@ -123,6 +129,9 @@
     <% end %>
 <!-- -----------------------------------ログインなし-------------------------------------- -->
   <% else %>
+    <%= link_to root_path do %>
+      <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
+    <% end %>
 
     <div class="dropdown search">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -145,7 +154,7 @@
       </div>
     </div>
 
-
+    
 
     <div class="dropdown login-out">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -182,3 +191,5 @@
   </div>
 </header>
 
+
+<div class="container-fluid">

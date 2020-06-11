@@ -21,6 +21,8 @@
 .bkRGBA{
   /* 背景画像の透過用css */
   height: 100%;
+  transform-origin: top left;
+  transform:scale(" + nRit + ");
 }
 
 .search{
@@ -157,9 +159,11 @@
 
 
 .logo{
-	position: absolute;
-	left: 650px;
-	top: 0px;
+	  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top:0;
 
 }
 
@@ -170,9 +174,16 @@
 }
 .member {
 	position: absolute;
-	right: 380px;
+	right: 400px;
 	top: 20px;
 }
+
+.order {
+	position: absolute;
+	right: 260px;
+	top: 20px;
+}
+
 .soldout {
 	width: 70px;
 	height: 70px;
