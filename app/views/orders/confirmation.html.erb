@@ -57,7 +57,7 @@
 
 <!-- ここにクレジット決済を組み込みたい、、、決済すると画面遷移 -->
 <!-- 決済後、自動でsubmitとか？ -->
-
+<!-- -----------------------------隠しform------------------------------------------------------ -->
 <div class="row">
   <div class="col-3"></div>
   <div class="col-9">
@@ -67,6 +67,17 @@
       <%= f.hidden_field :receiver %>
       <%= f.hidden_field :postal_code %>
       <%= f.hidden_field :delivery_address %>
+      <% if @option == "3" %>
+        <%= fields_for @address do |a| %>
+          <%= a.hidden_field :receiver %>
+          <%= a.hidden_field :postal_code %>
+          <%= a.hidden_field :prefecture_code %>
+          <%= a.hidden_field :address_city %>
+          <%= a.hidden_field :address_street %>
+          <%= a.hidden_field :address_building %>
+          <%= hidden_field_tag :option, "3"%>
+        <% end %>
+      <% end %>
       <%= f.submit "購入を確定する" %>
     <% end %>
   <% elsif @order.payment == "クレジットカード" %>
@@ -76,6 +87,18 @@
          <%= f.hidden_field :receiver %>
          <%= f.hidden_field :postal_code %>
          <%= f.hidden_field :delivery_address %>
+         <% if @option == "3" %>
+          <%= fields_for @address do |a| %>
+            <%= a.hidden_field :receiver %>
+            <%= a.hidden_field :postal_code %>
+            <%= a.hidden_field :prefecture_code %>
+            <%= a.hidden_field :address_city %>
+            <%= a.hidden_field :address_street %>
+            <%= a.hidden_field :address_building %>
+            <%= hidden_field_tag :option, "3" %>
+          <% end %>
+         <% end %>
+
        <% end %>
      <script src="https://checkout.pay.jp/" class="payjp-button" data-key= "<%= ENV['PAYJP_TEST_PUBLICKEY'] %>"></script>
     <% end %>

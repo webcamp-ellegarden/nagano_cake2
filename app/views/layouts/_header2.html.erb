@@ -1,7 +1,6 @@
 <header class="header-box">
   <div class="bkRGBA">
 
-
   <!-- about 追加 -->
        <% unless admin_signed_in? %>
         <div id="sp-menu">
@@ -46,7 +45,7 @@
 <!-- ------------------------------------------user ------------------------------------------------->
     <div class="serch-box">
     <% if user_signed_in? %>
-      <%= link_to root_path do %>
+      <%= link_to root_path, id: "Home-link" do %>
         <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
       <% end %>
 
@@ -87,7 +86,7 @@
 <!-- ----------------------------------admin------------------------------------ -->
   <% elsif admin_signed_in? %>
     
-    <%= link_to root_path do %>
+    <%= link_to root_path, id: "Home-link" do %>
       <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
     <% end %>
      <div class="dropdown search">
@@ -114,7 +113,7 @@
     <%= link_to destroy_admin_session_path, method: :delete do %>
       <button type="button" class="btn btn-success cart">Log Out</button>
     <% end %>
-    <%= link_to admins_users_path do %>
+    <%= link_to admins_users_path, id: "user-link" do %>
       <button type="button" class="btn btn-success member">会員一覧</button>
     <% end %>
     <%= link_to admins_categories_path do %>
@@ -129,7 +128,7 @@
     </div>
 <!-- -----------------------------------ログインなし-------------------------------------- -->
   <% else %>
-    <%= link_to root_path do %>
+    <%= link_to root_path, id: "Home-link" do %>
       <button type="button" class="btn btn-outline-dark home"><i class="fas fa-home"></i> Home</button>
     <% end %>
 
