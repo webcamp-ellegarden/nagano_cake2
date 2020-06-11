@@ -1,5 +1,6 @@
 <%= render 'layouts/header2' %>
 <!-- カートページ -->
+<div class="container">
 <% if current_user.carts.count != 0 %>
 <div class="row"></div>
   <div class="col-9">
@@ -85,3 +86,4 @@
       </div>
     </div>
 <% end %>
+</div>

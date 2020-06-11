@@ -11,14 +11,14 @@ describe 'カートのテスト' do
     click_button 'ログイン'
   end
   describe 'カート機能' do
-    context '「買い物を続ける」を押す。' do
+    context '「買い物を続ける」ボタン' do
       it '商品一覧に遷移する。' do
         visit carts_path
         click_link('shop-link')
         expect(page).to have_content 'Product'
       end
     end
-    context 'カートの個数を変更する。' do
+    context 'カートの個数変更' do
       it '合計金額が変わる。' do
         visit carts_path
         find_field('cart[number]').set("3")
@@ -27,7 +27,7 @@ describe 'カートのテスト' do
         expect(page).to have_content '1620'
       end
     end
-    context '「情報入力へ進む」を押す。' do
+    context '「情報入力へ進む」をボタン' do
       it '情報入力画面に遷移する。' do
         visit carts_path
         click_link('info-link')
