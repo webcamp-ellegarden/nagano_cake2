@@ -1,3 +1,4 @@
+<%= render 'layouts/header2' %>
 <h2>新規会員登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -49,7 +50,7 @@
 <%= link_to 'コチラ', new_user_session_path %>からログインしてください
 
 <div class="actions">
-  <%= f.submit "新規会員登録" %>
+  <%= f.submit "新規会員登録" ,class: "btn btn-outline-dark"%>
 </div>
 <% end %>
 

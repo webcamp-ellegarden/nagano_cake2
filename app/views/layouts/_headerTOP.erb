@@ -5,7 +5,29 @@
     <% end %>
 
   <!-- about 追加 -->
- 
+       <!-- about 追加 -->
+       <% unless admin_signed_in? %>
+        <div id="sp-menu">
+          <div id="sp-main">
+            <div id="sp-head">
+            　<h1>Nagano Cake とは</h1>
+            </div>
+            <div id="sp-text">
+              <p>長野県軽井沢市で老舗洋菓子店を営んでおりますながのCAKEです。</p>
+              <p>地元長野県で取れたフルーツ・牛乳・卵を使用しており素材を活かしたスイーツを作っております。</p>
+              <p>ありがたいことに全国のお客様からお店までお越しして頂き商品を買って頂いております。</p>
+              <p>今までは店舗販売以外にメールでのご注文に対応しておりましたが、</p>
+              <p>この度ながのCAKE専用の通販サイトを作成いたしました。</p>
+              <p>お店に直接来ることが難しい方でも是非ご利用頂けますと幸いです。</p>
+              <%= image_tag 'logo.jpg', size: "120x75" %>
+            </div>
+          </div>
+        </div>
+        <!-- about icon -->
+     　　<div id="hm-icon">
+      　　<button type="button" class="btn btn-outline-dark menu-trigger"><i class="fas fa-birthday-cake"></i> About us</button>
+        </div>
+      <% end %>
 
 
 <!-- ロゴ部分 -->
@@ -123,29 +145,7 @@
       </div>
     </div>
 
-      <!-- about 追加 -->
-       <% unless admin_signed_in? %>
-        <div id="sp-menu">
-          <div id="sp-main">
-            <div id="sp-head">
-            　<h1>Nagano Cake とは</h1>
-            </div>
-            <div id="sp-text">
-              <p>長野県軽井沢市で老舗洋菓子店を営んでおりますながのCAKEです。</p>
-              <p>地元長野県で取れたフルーツ・牛乳・卵を使用しており素材を活かしたスイーツを作っております。</p>
-              <p>ありがたいことに全国のお客様からお店までお越しして頂き商品を買って頂いております。</p>
-              <p>今までは店舗販売以外にメールでのご注文に対応しておりましたが、</p>
-              <p>この度ながのCAKE専用の通販サイトを作成いたしました。</p>
-              <p>お店に直接来ることが難しい方でも是非ご利用頂けますと幸いです。</p>
-              <%= image_tag 'logo.jpg', size: "120x75" %>
-            </div>
-          </div>
-        </div>
-        <!-- about icon -->
-     　　<div id="hm-icon">
-      　　<button type="button" class="btn btn-outline-dark menu-trigger"><i class="fas fa-birthday-cake"></i> About us</button>
-        </div>
-      <% end %>
+
 
     <div class="dropdown login-out">
       <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
