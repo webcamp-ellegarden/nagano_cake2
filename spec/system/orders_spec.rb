@@ -20,5 +20,16 @@ describe 'adminsログイン' do
         visit admins_orders_path
         expect(page).to have_content '購入日時'
       end
+      it '注文詳細画面が表示される' do
+        click_button '注文履歴一覧'
+        visit admins_orders_path
+        expect(page).to have_content '購入日時'
+     end
+     it 'ジャンル一覧に遷移できる' do
+        click_button 'ジャンル一覧'
+        visit admins_categories_path
+        expect(page).to have_content 'ジャンル一覧'
+      end
     end
   end
+
