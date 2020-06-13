@@ -1,4 +1,6 @@
-<div class="row">
+<%= render 'layouts/header2' %>
+
+  <div class="row">
 	<div class="col-1"></div>
 	<div class="col-11">
 		<% if @category == "1" %>
@@ -20,8 +22,13 @@
 			<% @products.each do |product| %>
 			  <div class="product-box">
 			  	<div class="image-box">
-			  	  <%= link_to product_path(product) do %>
+			  	  <%= link_to product_path(product), id: "product_link#{product.id}" do %>
 			  	    <div class="hover-box"></div>
+			  	  <% end %>
+			  	  <% if product.id == 1 || product.id == 2 || product.id == 3 || product.id == 4 %>
+			  	    <div class="rounded-circle pick">
+			  	  	  <span>PICK UP!</span>
+			  	    </div>
 			  	  <% end %>
 			  	  <% if product.product_status!= "販売中" %>
 			  	    <div class="rounded-circle soldout">
@@ -43,6 +50,6 @@
 		  </div>
 		</div>
 	</div>
-</div>
+  </div>
 
 

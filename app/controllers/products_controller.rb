@@ -20,7 +20,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @cart = Cart.new
-    @cartfilter = Cart.where(product_id: @product.id).find_by(user_id: current_user.id)
+    if user_signed_in?
+      @cartfilter = Cart.where(product_id: @product.id).find_by(user_id: current_user.id)
+    end
   end
 
 end

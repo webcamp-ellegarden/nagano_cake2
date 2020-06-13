@@ -1,4 +1,4 @@
-
+<%= render 'layouts/header2' %>
 <body style="background: #FFFF;color: #000; font-family:monospace" >
   <div class="container">
     <div class="form-group">
@@ -30,7 +30,7 @@
 		  <% @users.each do |user| %>
 			<tr>
 				<td><%= user.id %>	</td>
-				<td><%= link_to user.user_fullname,admins_user_path(user),:style=>"color:#000;" %></td>
+				<td><%= link_to user.user_fullname,admins_user_path(user),:style=>"color:#000;", id: "admin-user-link"%></td>
 			    <td><%= user.email %></td>
 				<td><%= user.user_status %></td>
 		    </tr>

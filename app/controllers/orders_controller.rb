@@ -22,13 +22,13 @@ class OrdersController < ApplicationController
   end
  # (POST)注文確認画面表示--------------------0
   def confirmation
-    option = params[:option] #どの方法で配達先を選択したか受け取る。
-    if option == "1"  #(1)完成! ユーザーの住所をorderに入れる。
+    @option = params[:option] #どの方法で配達先を選択したか受け取る。
+    if @option == "1"  #(1)完成! ユーザーの住所をorderに入れる。
       @order = Order.new(order_params)
       @order.receiver = current_user.user_fullname 
       @order.postal_code = current_user.postal_code
       @order.delivery_address = current_user.user_address
-    elsif option == "2" #(2)完成! 既存の配達先から選ぶ
+    elsif @option == "2" #(2)完成! 既存の配達先から選ぶ
       address_select = DeliveryAddress.find(params[:address_select])
       @order = Order.new(order_params)
       @order.receiver = address_select.receiver
@@ -36,13 +36,16 @@ class OrdersController < ApplicationController
       @order.delivery_address = address_select.connect_address
     else #(3)完成！ 新規の住所をaddress_paramsで受け取りorderに入れる。
       @order = Order.new(order_params)
-      address = DeliveryAddress.new(address_params)
-      @order.postal_code = address.postal_code
-      @order.delivery_address = address.connect_address
+      @address = DeliveryAddress.new(address_params)
+      @address.receiver = @order.receiver
+      @order.postal_code = @address.postal_code
+      @order.delivery_address = @address.connect_address
   	end
       @carts = Cart.where(user_id: current_user.id)
   	  render 'orders/confirmation' #カート情報と注文情報をviewに渡し再度隠しフォームに入れる。
   end
+
+
   # (POST)注文データ作成→注文確定ページ表示---------0
   def create
   	@order = Order.new(order_params)
@@ -61,6 +64,7 @@ class OrdersController < ApplicationController
     end
   	@order.user_id = current_user.id
   	@order.save
+    # cartからorder_detailを作成
     @carts.each do |cart|
       @order_detail = OrderDetail.new
       @order_detail.order_id = @order.id
@@ -70,17 +74,23 @@ class OrdersController < ApplicationController
       @order_detail.making_status = 1
       @order_detail.save
     end
-  	current_user.carts.destroy_all
-  	render 'orders/completation'
+    option = params[:option]
+    if option == "3"
+      address = DeliveryAddress.new(address_params)
+      address.user_id = current_user.id
+      address.save
+    end
+    current_user.carts.destroy_all
+    render 'orders/completation'
   end
 #------------------------------------------
 #ストロングパラメーター---------------------------
-  private 
+  private
   def order_params
   	params.require(:order).permit(:payment, :receiver, :postal_code, :delivery_address)
   end
 
   def address_params
-    params.require(:delivery_address).permit(:postal_code, :prefecture_code, :address_city, :address_street, :address_building)
+    params.require(:delivery_address).permit(:receiver, :postal_code, :prefecture_code, :address_city, :address_street, :address_building)
   end
 end

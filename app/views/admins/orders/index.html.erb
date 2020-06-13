@@ -1,3 +1,4 @@
+<%= render 'layouts/header2' %>
 <body style="background: #FFFF;color: #000; font-family:monospace" >
   <div class="container">
     <div class="form-group">
@@ -22,7 +23,7 @@
           <% @orders.each do |order| %>
             <tbody>
               <tr>
-    	          <td><%= link_to order.created_at.to_s(:datetime_jp),admins_order_path(order),:style=>"color:#000;" %></td>
+    	          <td><%= link_to admins_order_path(order), id: "order_link#{order.id}" do %><%= order.created_at.to_s(:datetime_jp) %><% end %></td>
     	          <td><%= order.user.family_name %><%= order.user.first_name %></td>
     	          <td><%= order.order_details.map(&:number).sum %></td>
                 <td><%= order.order_status %></td>

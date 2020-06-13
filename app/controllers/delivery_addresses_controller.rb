@@ -7,8 +7,7 @@ class DeliveryAddressesController < ApplicationController
 	def edit
       @address = DeliveryAddress.find(params[:id])
     end
-  
-   
+
 
     def update
         @address = DeliveryAddress.find(params[:id])

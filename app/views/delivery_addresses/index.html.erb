@@ -1,4 +1,4 @@
-
+<%= render 'layouts/header2' %>
 <body style="background: #FFFF;color: #000; font-family:monospace" >
   <div class="container">
     <div class="form-group">
@@ -113,7 +113,7 @@
    
               <tr>
     	          <td><%= a.postal_code %></td>
-    	          <td><%= a.prefecture_code %><%= a.address_city %><%= a.address_street %><%= a.address_building %></td>
+    	          <td><%= a.connect_address %></td>
     	          <td><%= a.receiver %></td>
                 <td><%= link_to "編集する", edit_delivery_address_path(a),class: "btn btn-outline-primary" %></td>
                 <td><%= link_to "Destroy", delivery_address_path(a), method: :delete, data:{confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger" %></td>

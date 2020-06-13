@@ -17,14 +17,16 @@ class Admins::ProductsController < ApplicationController
 
   def new
   	@product = Product.new
-    @categories = Category.all
-    @category = Product.new
+
   end
 
   def create
   	@product = Product.new(product_params)
-  	@product.save
-  	redirect_to admins_products_path
+  	if @product.save
+  	 redirect_to  admins_product_path(@product)
+    else
+      render new_admins_product_path
+    end
   end
 
   def edit

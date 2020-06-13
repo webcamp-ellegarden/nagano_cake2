@@ -1,4 +1,4 @@
-
+<%= render 'layouts/header2' %>
 <body style="background: #FFFF;color: #000; font-family:monospace" >
   <div class="container">
     <div class="form-group">
@@ -46,8 +46,7 @@
           	<%= form_for @order,:url => {:action => :update} do |f| %>
               <%= f.select :order_status, Order.order_statuses.keys %>
                 <%= hidden_field_tag :option, "2"%>
-                <%= f.submit "更新", class: "btn btn-primary" %>
-                <%= @order.order_status %>
+                <%= f.submit "更新", class: "btn btn-outline-dark", id: "order_link#{@order.id}" %>
             <% end %>
 
           </div>
@@ -79,7 +78,7 @@
                     <%= f.select :making_status, OrderDetail.making_statuses.keys %>
                       <%= f.hidden_field :id %>
                         <%= hidden_field_tag :option, "1"%>
-                          <%= f.submit "更新", class: "btn btn-primary" %>
+                          <%= f.submit "更新", class: "btn btn-outline-dark" , id: "order_detail_link#{order_detail.id}"  %>
                   <% end %>
                 </td>
                 </tr>

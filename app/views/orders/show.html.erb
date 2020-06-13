@@ -1,4 +1,13 @@
-<h2>注文履歴詳細</h2>
+<%= render 'layouts/header2' %>
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>注文履歴詳細</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Order history show</p>
+          </div>
+      </div>
+    </div>
 <div class="row">
   <div class="col-6">
   	<table class="table table-bordered">
@@ -59,9 +68,9 @@
   		<% @order.order_details.each do |order_detail|%>
         <tr>
   		    <td><%= order_detail.product.product_name %></td>
-  		    <td><%= order_detail.product_price.to_s(:delimited) %></td>
+  		    <td><%= order_detail.tax_included.to_s(:delimited) %></td>
   		    <td><%= order_detail.number %></td>
-  		    <td><%= order_detail.number * order_detail.product_price %></td>
+  		    <td><%= order_detail.subtotal.to_s(:delimited) %></td>
         </tr>
   		<% end %>
  		</tbody>
