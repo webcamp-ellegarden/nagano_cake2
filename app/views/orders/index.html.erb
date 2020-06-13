@@ -1,11 +1,13 @@
 <%= render 'layouts/header2' %>
-<div class="row">
-	<div class="col-2"></div>
-	<div class="col-5">
-		<h2>注文履歴一覧</h2>
-	</div>
-	<div class="col-5"></div>
-</div>
+  <div class="container">
+    <div class="form-group">
+      <div class=col-6 style="border-bottom: 1px solid #000;border-left: 10px solid #000;padding: 7px;">
+        <h3>注文履歴一覧</h3>
+          <div class=col-6 style="opacity: 0.5; font-family:cursive" >
+            <p>Order history index</p>
+          </div>
+      </div>
+    </div>
 <div class="row">
 	<table class="table table-bordered">
 		<thead>
@@ -35,7 +37,7 @@
 			  	<td><%= order.total_price %>円</td>
 			  	<td><%= order.order_status %></td>
 			  	<td>
-			  		<div class="btn btn-success btn-xs">
+			  		<div class="btn btn-outline-success btn-xs">
 			  		  <%= link_to "表示する", order_path(order) %>
 			  		</div>
 			  	</td>
