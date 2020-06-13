@@ -20,7 +20,7 @@ gem 'kaminari','~> 1.2.1'
 gem 'payjp'
 gem 'jquery-rails'
 gem 'dotenv-rails'
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jp_prefecture'
 
 gem 'faker', '2.1.2' #faker追加
