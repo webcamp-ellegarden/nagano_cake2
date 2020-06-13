@@ -25,6 +25,11 @@
 			  	  <%= link_to product_path(product), id: "product_link#{product.id}" do %>
 			  	    <div class="hover-box"></div>
 			  	  <% end %>
+			  	  <% if product.id == 1 || product.id == 2 || product.id == 3 || product.id == 4 %>
+			  	    <div class="rounded-circle pick">
+			  	  	  <span>PICK UP!</span>
+			  	    </div>
+			  	  <% end %>
 			  	  <% if product.product_status!= "販売中" %>
 			  	    <div class="rounded-circle soldout">
 			  	  	  <span>Sold Out</span>

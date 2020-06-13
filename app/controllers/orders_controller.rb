@@ -64,6 +64,7 @@ class OrdersController < ApplicationController
     end
   	@order.user_id = current_user.id
   	@order.save
+    # cartからorder_detailを作成
     @carts.each do |cart|
       @order_detail = OrderDetail.new
       @order_detail.order_id = @order.id
