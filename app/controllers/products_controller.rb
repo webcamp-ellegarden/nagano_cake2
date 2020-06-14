@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     	@products = Product.joins(:category).where(categories: {category_status: "有効"}).where(category_id: 4).page(params[:page]).per(8).reverse_order
     elsif @category == "5"
       search = params[:search]
-      @products = Product.where('product_name LIKE ?', "%#{search}%").page(params[:page]).per(8).reverse_order
+      @products = Product.where(['product_name LIKE?', "%#{search}%"]).page(params[:page]).per(8).reverse_order
     else #一覧表示
       @products = Product.joins(:category).where(categories: {category_status: "有効"}).page(params[:page]).per(8)
     end
