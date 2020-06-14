@@ -52,7 +52,8 @@
 	<p>支払い方法：　<%= @order.payment %></p>
 </div>
 <div class="row">
-	<p>お届け先：　<%= @order.delivery_address %></p>
+	<p>お届け先：　<%= @order.postal_code %>  <%= @order.delivery_address %>    <%= @order.receiver %>
+  </p>
 </div>
 
 <!-- ここにクレジット決済を組み込みたい、、、決済すると画面遷移 -->

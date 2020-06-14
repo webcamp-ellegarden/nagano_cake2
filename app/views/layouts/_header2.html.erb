@@ -138,6 +138,7 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= form_tag(products_path,:method => 'get') do %>
+            <%= hidden_field_tag :category, "5" %>
             <%= text_field_tag :search %>
             <%= submit_tag 'Search', :name => nil, :class => "btn btn-outline-dark"%>
           <% end %>
